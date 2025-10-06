@@ -1,0 +1,7 @@
+expression 'Directorio datos' = "##repo\01-ventas-videojuegos\datos\" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+	lineageTag: 1762643a-1f4e-4c78-bf30-d24b412386cf
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Text
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "proyecto-ventas-videojuegos"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "457e00e2-d083-4c97-977c-c3f7bb2b0f64"
+  }
+}
