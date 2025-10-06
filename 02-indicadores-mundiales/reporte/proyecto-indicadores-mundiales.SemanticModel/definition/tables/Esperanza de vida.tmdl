@@ -1,0 +1,50 @@
+table 'Esperanza de vida'
+	lineageTag: cb87db03-4099-4093-8d8f-7b6690e54101
+
+	column Country
+		dataType: string
+		isHidden
+		lineageTag: 61685636-3609-4807-911f-26fd001a9579
+		summarizeBy: none
+		sourceColumn: Country
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Esperanza de vida'
+		dataType: double
+		lineageTag: 15ba37f7-c30e-4c5d-9ee2-55ee90e9e01d
+		summarizeBy: average
+		sourceColumn: Esperanza de vida
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Rango Esperanza de vida'
+		dataType: string
+		lineageTag: d29c2fd1-e234-4d9c-90a3-2e9967730a36
+		summarizeBy: none
+		sourceColumn: Rango Esperanza de vida
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Esperanza de vida-80161e86-2f7d-46cf-9a97-16521d496aa1' = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents(#"Directorio datos" & "Life+expectancy.xlsx"), null, true),
+				    #"Life expectancy_Sheet" = Origen{[Item="Life expectancy",Kind="Sheet"]}[Data],
+				    #"Encabezados promovidos" = Table.PromoteHeaders(#"Life expectancy_Sheet", [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"Country", type text}, {"Life Expectancy", type number}}),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Tipo cambiado",{{"Life Expectancy", "Esperanza de vida"}}),
+				    #"Columna condicional agregada" = Table.AddColumn(#"Columnas con nombre cambiado", "Personalizado", each if [Esperanza de vida] <= 60 then "0 a 60" else if [Esperanza de vida] <= 70 then "60 a 70" else if [Esperanza de vida] <= 80 then "70 a 80" else "80 o mas"),
+				    #"Columnas con nombre cambiado1" = Table.RenameColumns(#"Columna condicional agregada",{{"Personalizado", "Rango Esperanza de vida"}})
+				in
+				    #"Columnas con nombre cambiado1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

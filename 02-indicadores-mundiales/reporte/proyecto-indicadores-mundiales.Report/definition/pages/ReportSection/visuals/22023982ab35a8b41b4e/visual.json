@@ -1,0 +1,77 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "22023982ab35a8b41b4e",
+  "position": {
+    "x": 0,
+    "y": 88.040201005025125,
+    "z": 0,
+    "height": 373.86934673366829,
+    "width": 372.66331658291455
+  },
+  "visual": {
+    "visualType": "treemap",
+    "query": {
+      "queryState": {
+        "Group": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Paises"
+                    }
+                  },
+                  "Property": "Pais"
+                }
+              },
+              "queryRef": "Paises.Pais",
+              "nativeQueryRef": "Pais",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Población"
+                        }
+                      },
+                      "Property": "Población"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Poblacion.Population)",
+              "nativeQueryRef": "Población",
+              "displayName": "Población"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

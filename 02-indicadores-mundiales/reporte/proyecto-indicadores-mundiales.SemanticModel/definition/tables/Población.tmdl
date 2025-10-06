@@ -1,0 +1,48 @@
+table Población
+	lineageTag: 9d37e088-f130-4d93-9949-f017ecb39804
+
+	column Country
+		dataType: string
+		isHidden
+		lineageTag: 4bdb2f92-d285-4981-bfb1-edb4de45e25c
+		summarizeBy: none
+		sourceColumn: Country
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Población
+		dataType: int64
+		formatString: #,0
+		lineageTag: e3022fc3-dbe8-432d-ab36-79184062d26d
+		summarizeBy: sum
+		sourceColumn: Población
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cantidad población'
+		dataType: string
+		lineageTag: a5585cf9-f0a0-44d2-8e13-6a80d6107505
+		summarizeBy: none
+		sourceColumn: Cantidad población
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Población-2d828462-f7fb-4ec0-8466-ab2a5076d6f0 = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents(#"Directorio datos" & "Population.xlsx"), null, true),
+				    Population_Sheet = Origen{[Item="Population",Kind="Sheet"]}[Data],
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Population_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"Country", type text}, {"Population", Int64.Type}}),
+				    #"Columna condicional agregada" = Table.AddColumn(#"Tipo cambiado", "Cantidad población", each if [Population] <= 1000000 then "0 - 1 M" else if [Population] <= 10000000 then "1 M - 10 M" else if [Population] <= 100000000 then "10 M- 100 M" else "100 M +"),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Columna condicional agregada",{{"Population", "Población"}})
+				in
+				    #"Columnas con nombre cambiado"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

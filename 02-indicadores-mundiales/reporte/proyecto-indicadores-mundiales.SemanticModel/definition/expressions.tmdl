@@ -1,0 +1,7 @@
+expression 'Directorio datos' = "##repo\02-indicadores-mundiales\datos\" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+	lineageTag: 10880057-f04e-4b35-9fc9-cc9eac9c3414
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Text
+

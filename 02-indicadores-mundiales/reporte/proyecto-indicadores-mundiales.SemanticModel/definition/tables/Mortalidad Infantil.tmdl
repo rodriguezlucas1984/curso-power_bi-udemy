@@ -1,0 +1,50 @@
+table 'Mortalidad Infantil'
+	lineageTag: 3f250ed7-97c0-46d9-99e3-2db972e9e511
+
+	column Country
+		dataType: string
+		isHidden
+		lineageTag: ffe846ef-9e8a-4f3c-a053-2f4861a53bc6
+		summarizeBy: none
+		sourceColumn: Country
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mortalidad infantil'
+		dataType: double
+		lineageTag: 34ebc095-907d-4750-82a7-0461ab0bf998
+		summarizeBy: average
+		sourceColumn: Mortalidad infantil
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Rango Mortalidad Infantil'
+		dataType: string
+		lineageTag: 38812f79-bfbe-472b-a444-f41347102f04
+		summarizeBy: none
+		sourceColumn: Rango Mortalidad Infantil
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Mortalidad Infantil-f26b652d-f0ae-4405-8fbc-bd1f5caf79ae' = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents(#"Directorio datos" & "Infant+death+rate.xlsx"), null, true),
+				    #"Infant death rate_Sheet" = Origen{[Item="Infant death rate",Kind="Sheet"]}[Data],
+				    #"Encabezados promovidos" = Table.PromoteHeaders(#"Infant death rate_Sheet", [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"Country", type text}, {"Infant mortality", type number}}),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Tipo cambiado",{{"Infant mortality", "Mortalidad infantil"}}),
+				    #"Columna condicional agregada" = Table.AddColumn(#"Columnas con nombre cambiado", "Rango Mortalidad", each if [Mortalidad infantil] <= 10 then "0 a 10" else if [Mortalidad infantil] <= 25 then "10 a 25" else if [Mortalidad infantil] <= 50 then "25 a 50" else "50 o mas"),
+				    #"Columnas con nombre cambiado1" = Table.RenameColumns(#"Columna condicional agregada",{{"Rango Mortalidad", "Rango Mortalidad Infantil"}})
+				in
+				    #"Columnas con nombre cambiado1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

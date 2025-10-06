@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "proyecto-indicadores-mundiales"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1b4983ca-b7ed-4967-9339-2edfe10acbc2"
+  }
+}

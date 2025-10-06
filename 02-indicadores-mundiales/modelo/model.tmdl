@@ -6,7 +6,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["Ventas Videojuegos","Directorio datos"]
+annotation PBI_QueryOrder = ["Población","Countries","Paises","Mortalidad Infantil","Esperanza de vida","Directorio datos"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
@@ -14,7 +14,11 @@ annotation PBIDesktopVersion = 2.145.1457.0 (25.07)+6e87ffa743c5aa106a85a0b5e383
 
 annotation PBI_ProTooling = ["DevMode"]
 
-ref table 'Ventas Videojuegos'
+ref table Población
+ref table Countries
+ref table Paises
+ref table 'Mortalidad Infantil'
+ref table 'Esperanza de vida'
 
 ref cultureInfo es-AR
 

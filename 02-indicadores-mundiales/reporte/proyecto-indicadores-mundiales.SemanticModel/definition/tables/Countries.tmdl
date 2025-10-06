@@ -1,0 +1,55 @@
+table Countries
+	isHidden
+	lineageTag: 1367f726-88a4-4c93-8e8d-010c396202f2
+
+	column 'Country Code'
+		dataType: string
+		isHidden
+		lineageTag: c01d0355-8e8e-462b-8014-79f8575db6e0
+		summarizeBy: none
+		sourceColumn: Country Code
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		isHidden
+		lineageTag: a4f9fa17-2ec7-49db-8ab0-96bd685ebbed
+		summarizeBy: none
+		sourceColumn: Country
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Continent
+		dataType: string
+		isHidden
+		lineageTag: 4a2524a2-0d47-42e8-b662-60d02be8696a
+		summarizeBy: none
+		sourceColumn: Continent
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Countries-cef5f79b-3ab7-4955-a67d-c984cde78b4a = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents(#"Directorio datos" & "Countries.xlsx"), null, true),
+				    Countries_Sheet = Origen{[Item="Countries",Kind="Sheet"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Countries_Sheet,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}}),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(#"Tipo cambiado", [PromoteAllScalars=true]),
+				    #"Tipo cambiado1" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"Country Code", type text}, {"Country", type text}, {"Continent", type text}})
+				in
+				    #"Tipo cambiado1"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

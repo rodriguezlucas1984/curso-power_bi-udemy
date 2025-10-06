@@ -1,0 +1,24 @@
+relationship b71734ef-fa1b-4431-92cf-2106a99b7b08
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Población.Country
+	toColumn: Countries.Country
+
+relationship eeb6ee98-c69e-494e-9518-b2c70e933aa4
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Countries.'Country Code'
+	toColumn: Paises.'Codigo Pais'
+
+relationship 43d52a03-e1c0-49c1-ab84-5f84aaecd549
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Mortalidad Infantil'.Country
+	toColumn: Countries.Country
+
+relationship 1ba94be9-bde9-40b3-bfa3-52505260bee7
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Esperanza de vida'.Country
+	toColumn: Countries.Country
+
