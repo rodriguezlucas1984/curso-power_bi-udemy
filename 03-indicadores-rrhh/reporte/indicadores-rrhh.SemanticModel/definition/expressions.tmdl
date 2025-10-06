@@ -1,0 +1,7 @@
+expression 'Datos origen' = "##repo\03-indicadores-rrhh\datos\" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+	lineageTag: 3d37e351-52d1-4cae-9029-254e9e172b3f
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Text
+

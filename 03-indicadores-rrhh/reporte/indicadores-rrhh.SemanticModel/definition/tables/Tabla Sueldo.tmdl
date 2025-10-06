@@ -1,0 +1,53 @@
+table 'Tabla Sueldo'
+	lineageTag: b566e818-3a88-48c7-83b2-799b0ba87058
+
+	measure 'Sueldo Prom' = AVERAGE('Tabla Sueldo'[Sueldo])
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: d67d945a-3253-458a-95c6-04cac8248372
+
+	column 'ID Empleado'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4b27b08f-f752-4ec7-8edf-62b9909fba94
+		summarizeBy: none
+		sourceColumn: ID Empleado
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sueldo
+		dataType: int64
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 88162e2e-cb8f-41c2-8f4f-912b0e6d7867
+		summarizeBy: sum
+		sourceColumn: Sueldo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Grupo Sueldo' =
+			
+			IF('Tabla Sueldo'[Sueldo]<=40000,"0-40m",
+			IF('Tabla Sueldo'[Sueldo]<=60000,"40-60m",
+			IF('Tabla Sueldo'[Sueldo]<=80000,"60-80m",
+			IF('Tabla Sueldo'[Sueldo]<=100000,"80-100m",
+			"Más 100m"
+			))))
+		lineageTag: 6f336670-d346-448c-815b-7246e723cf48
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Tabla Sueldo-97e8c9a4-3a0e-4cc6-9950-9ddde5ffe67f' = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents(#"Datos origen" & "Datos+Empleados.xlsx"), null, true),
+				    #"Tabla Sueldo_Sheet" = Origen{[Item="Tabla Sueldo",Kind="Sheet"]}[Data],
+				    #"Encabezados promovidos" = Table.PromoteHeaders(#"Tabla Sueldo_Sheet", [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"ID Empleado", Int64.Type}, {"Sueldo", Int64.Type}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

@@ -1,0 +1,12 @@
+relationship 743b459e-2b57-4713-8112-7f9b1ffdc544
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Tabla Evaluacion'.'ID Empleado'
+	toColumn: 'Tabla Empleados'.'ID Empleado'
+
+relationship 2ea91a63-1ac2-4fa0-8a96-e6d45ff6c069
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Tabla Sueldo'.'ID Empleado'
+	toColumn: 'Tabla Empleados'.'ID Empleado'
+

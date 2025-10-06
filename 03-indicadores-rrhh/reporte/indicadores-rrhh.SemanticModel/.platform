@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "indicadores-rrhh"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "eba66ff9-6c43-4699-b6ef-89fd1b188749"
+  }
+}

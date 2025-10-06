@@ -1,0 +1,22 @@
+model Model
+	culture: es-AR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-AR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Tabla Empleados","Tabla Evaluacion","Tabla Sueldo"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.145.1457.0 (25.07)+6e87ffa743c5aa106a85a0b5e383d76d522045ba
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'Tabla Empleados'
+ref table 'Tabla Evaluacion'
+ref table 'Tabla Sueldo'
+
+ref cultureInfo es-AR
+

@@ -1,0 +1,32 @@
+cultureInfo es-AR
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "tabla_evaluacion.evaluación_prom": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tabla Evaluacion",
+			          "ConceptualProperty": "Evaluación Prom"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Eva Prom": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+
