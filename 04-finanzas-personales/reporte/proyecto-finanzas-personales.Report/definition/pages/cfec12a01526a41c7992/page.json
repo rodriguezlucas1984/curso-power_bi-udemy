@@ -1,0 +1,133 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "cfec12a01526a41c7992",
+  "displayName": "Cuota Gastos",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Fondo+-+2+paneles.jpg'"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "ResourcePackageItem": {
+                    "PackageName": "RegisteredResources",
+                    "PackageType": 1,
+                    "ItemName": "Fondo+-+2+paneles01876230901890319.jpg"
+                  }
+                }
+              },
+              "scaling": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Normal'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visibility": "HiddenInViewMode",
+  "visualInteractions": [
+    {
+      "source": "cb2237421614554abe03",
+      "target": "740f4d3a83b0db077e61",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cb2237421614554abe03",
+      "target": "a6d04c5793a8e94322a4",
+      "type": "NoFilter"
+    },
+    {
+      "source": "740f4d3a83b0db077e61",
+      "target": "cb2237421614554abe03",
+      "type": "NoFilter"
+    },
+    {
+      "source": "a6d04c5793a8e94322a4",
+      "target": "cb2237421614554abe03",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cb2237421614554abe03",
+      "target": "0f3e95934715290548a4",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cb2237421614554abe03",
+      "target": "930fd8a583e0b8eae958",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cb2237421614554abe03",
+      "target": "3784c69fb8a67a7b7e70",
+      "type": "NoFilter"
+    },
+    {
+      "source": "a6d04c5793a8e94322a4",
+      "target": "bad795c900c0001277e0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "740f4d3a83b0db077e61",
+      "target": "bad795c900c0001277e0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "bad795c900c0001277e0",
+      "target": "0f3e95934715290548a4",
+      "type": "NoFilter"
+    },
+    {
+      "source": "bad795c900c0001277e0",
+      "target": "930fd8a583e0b8eae958",
+      "type": "NoFilter"
+    },
+    {
+      "source": "bad795c900c0001277e0",
+      "target": "3784c69fb8a67a7b7e70",
+      "type": "NoFilter"
+    },
+    {
+      "source": "bad795c900c0001277e0",
+      "target": "cb2237421614554abe03",
+      "type": "NoFilter"
+    },
+    {
+      "source": "bad795c900c0001277e0",
+      "target": "a6d04c5793a8e94322a4",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bad795c900c0001277e0",
+      "target": "740f4d3a83b0db077e61",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cb2237421614554abe03",
+      "target": "bad795c900c0001277e0",
+      "type": "NoFilter"
+    }
+  ]
+}

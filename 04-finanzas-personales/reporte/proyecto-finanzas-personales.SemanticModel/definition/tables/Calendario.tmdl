@@ -1,0 +1,109 @@
+table Calendario
+	lineageTag: 324616a0-0c33-499d-bde9-626613da4973
+
+	column Fecha
+		dataType: dateTime
+		formatString: mmmm "de" yyyy
+		lineageTag: 9f83ad1d-e06e-42f7-ae6b-beca558a7b7e
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		variation Variación
+			isDefault
+			relationship: 5817cfea-4e97-4602-9950-86dfdf491350
+			defaultHierarchy: JerarquiaFechas1.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Año
+		dataType: int64
+		formatString: 0
+		lineageTag: a28047ce-da24-4c22-b82c-9f0e792aebfb
+		summarizeBy: sum
+		sourceColumn: Año
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes #'
+		dataType: int64
+		formatString: 0
+		lineageTag: 150e7d19-8733-41d2-8b66-ef8ffcaaa714
+		summarizeBy: sum
+		sourceColumn: Mes #
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nombre del mes'
+		dataType: string
+		lineageTag: 0504d252-2d0c-4887-a27e-9b5db0960aa6
+		summarizeBy: none
+		sourceColumn: Nombre del mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes
+		dataType: string
+		lineageTag: cb2e6a0e-bb1f-4ed7-b47f-82997da918f3
+		summarizeBy: none
+		sourceColumn: Mes
+		sortByColumn: 'Mes #'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes/Año
+		dataType: dateTime
+		formatString: mm/yyyy
+		lineageTag: 3c173d79-425e-4b25-8165-b600633e2a2f
+		summarizeBy: none
+		sourceColumn: Mes/Año
+
+		variation Variación
+			isDefault
+			relationship: b2b9f66f-5c61-43d4-93e8-621fd70264c1
+			defaultHierarchy: JerarquiaFechas2.'Jerarquía de fechas'
+
+		changedProperty = SortByColumn
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	partition Calendario-c9e41ccf-1295-4c7c-ae3b-fb05e89b87c5 = m
+		mode: import
+		source =
+				let
+				    Origen = Folder.Files(#"Datos origen"),
+				    #"Archivos ocultos filtrados1" = Table.SelectRows(Origen, each [Attributes]?[Hidden]? <> true),
+				    #"Filas filtradas" = Table.SelectRows(#"Archivos ocultos filtrados1", each Text.Contains([Name], "Calendario")),
+				    #"Archivos ocultos filtrados2" = Table.SelectRows(#"Filas filtradas", each [Attributes]?[Hidden]? <> true),
+				    #"Invocar función personalizada2" = Table.AddColumn(#"Archivos ocultos filtrados2", "Transformar archivo", each #"Transformar archivo"([Content])),
+				    #"Columnas con nombre cambiado3" = Table.RenameColumns(#"Invocar función personalizada2", {"Name", "Source.Name"}),
+				    #"Otras columnas quitadas2" = Table.SelectColumns(#"Columnas con nombre cambiado3", {"Source.Name", "Transformar archivo"}),
+				    #"Columna de tabla expandida2" = Table.ExpandTableColumn(#"Otras columnas quitadas2", "Transformar archivo", Table.ColumnNames(#"Transformar archivo"(#"Archivo de ejemplo"))),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Columna de tabla expandida2",{{"Source.Name", type text}, {"Fecha", type date}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"Source.Name"}),
+				    #"Año insertado" = Table.AddColumn(#"Columnas quitadas", "Año", each Date.Year([Fecha]), Int64.Type),
+				    #"Mes insertado" = Table.AddColumn(#"Año insertado", "Mes", each Date.Month([Fecha]), Int64.Type),
+				    #"Nombre del mes insertado" = Table.AddColumn(#"Mes insertado", "Nombre del mes", each Date.MonthName([Fecha]), type text),
+				    #"Primeros caracteres insertados" = Table.AddColumn(#"Nombre del mes insertado", "Primeros caracteres", each Text.Start([Nombre del mes], 3), type text),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Primeros caracteres insertados",{{"Mes", "Mes #"}, {"Primeros caracteres", "Mes"}}),
+				    #"Texto insertado después del delimitador" = Table.AddColumn(#"Columnas con nombre cambiado", "Texto después del delimitador", each Text.AfterDelimiter(Text.From([Fecha], "es-AR"), "/"), type text),
+				    #"Columnas con nombre cambiado2" = Table.RenameColumns(#"Texto insertado después del delimitador",{{"Texto después del delimitador", "Mes/Año"}}),
+				    #"Filas filtradas1" = Table.SelectRows(#"Columnas con nombre cambiado2", each ([Fecha] <> null))
+				in
+				    #"Filas filtradas1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

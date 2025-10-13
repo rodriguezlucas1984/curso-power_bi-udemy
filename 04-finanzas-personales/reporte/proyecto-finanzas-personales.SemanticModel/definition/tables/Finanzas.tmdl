@@ -1,0 +1,64 @@
+table Finanzas
+	lineageTag: 69dc9947-dba1-409d-9a2e-15e9bd3affe1
+
+	column Tipo
+		dataType: string
+		isHidden
+		lineageTag: 3d831ce4-1445-42db-9695-204955bc8f27
+		summarizeBy: none
+		sourceColumn: Tipo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Categoria
+		dataType: string
+		isHidden
+		lineageTag: 5ef111c7-a745-484c-a20d-72585421f751
+		summarizeBy: none
+		sourceColumn: Categoria
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fecha
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 48f20cb4-8429-4cb8-a160-04529dd609a3
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Cantidad
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 0c7122e0-5c57-4066-a058-6e8d9a451a1a
+		summarizeBy: sum
+		sourceColumn: Cantidad
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Finanzas-136b22d5-9cc7-4e13-b24c-09bc30dec495 = m
+		mode: import
+		source =
+				let
+				    Origen = Table.Combine({TablaGastos, TablaIngresos}),
+				    #"Columnas reordenadas" = Table.ReorderColumns(Origen,{"Tipo", "Categoria", "Fecha", "Cantidad"})
+				in
+				    #"Columnas reordenadas"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

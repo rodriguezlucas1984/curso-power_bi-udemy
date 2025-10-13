@@ -1,0 +1,2527 @@
+cultureInfo es-AR
+
+	linguisticMetadata =
+			{
+			  "Version": "4.1.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "finanza": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Finanzas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "finanza": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "finanza.tipo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Finanzas",
+			          "ConceptualProperty": "Tipo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "tipo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "finanza.categoria": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Finanzas",
+			          "ConceptualProperty": "Categoria"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "categoria": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "finanza.fecha": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Finanzas",
+			          "ConceptualProperty": "Fecha"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "fecha": {
+			            "State": "Generated"
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "finanza.cantidad": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Finanzas",
+			          "ConceptualProperty": "Cantidad"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "cantidad": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "expectativa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Expectativas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "expectativa": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "expectativa.tipo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Expectativas",
+			          "ConceptualProperty": "Tipo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "tipo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "expectativa.categoria": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Expectativas",
+			          "ConceptualProperty": "Categoria"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "categoria": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "expectativa.fecha": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Expectativas",
+			          "ConceptualProperty": "Fecha"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "fecha": {
+			            "State": "Generated"
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "expectativa.cantidad": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Expectativas",
+			          "ConceptualProperty": "Cantidad"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "cantidad": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "calendario": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendario"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "calendario": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "calendario.fecha": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendario",
+			          "ConceptualProperty": "Fecha"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fecha": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "calendario.fecha.jerarquía_de_fecha": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendario",
+			          "VariationSource": "Fecha",
+			          "VariationSet": "Variación",
+			          "Hierarchy": "Jerarquía de fechas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "jerarquía de fecha": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "calendario.fecha.año": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendario",
+			          "VariationSource": "Fecha",
+			          "VariationSet": "Variación",
+			          "Hierarchy": "Jerarquía de fechas",
+			          "HierarchyLevel": "Año"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "año": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "fecha año": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "calendario.fecha.trimestre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendario",
+			          "VariationSource": "Fecha",
+			          "VariationSet": "Variación",
+			          "Hierarchy": "Jerarquía de fechas",
+			          "HierarchyLevel": "Trimestre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "trimestre": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "fecha trimestre": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "calendario.fecha.me": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendario",
+			          "VariationSource": "Fecha",
+			          "VariationSet": "Variación",
+			          "Hierarchy": "Jerarquía de fechas",
+			          "HierarchyLevel": "Mes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "me": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "fecha me": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "calendario.fecha.día": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendario",
+			          "VariationSource": "Fecha",
+			          "VariationSet": "Variación",
+			          "Hierarchy": "Jerarquía de fechas",
+			          "HierarchyLevel": "Día"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "día": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "fecha día": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "calendario.año": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendario",
+			          "ConceptualProperty": "Año"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "año": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "calendario.mes_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendario",
+			          "ConceptualProperty": "Mes #"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "mes #": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "me #": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "me no": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "me num": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "me number": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "calendario.nombre_del_me": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendario",
+			          "ConceptualProperty": "Nombre del mes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nombre del me": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "calendario.me": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendario",
+			          "ConceptualProperty": "Mes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "me": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "calendario.mes_año": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendario",
+			          "ConceptualProperty": "Mes/Año"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "mes/año": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "me/año": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        },
+			        {
+			          "mes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "me": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.7566
+			          }
+			        },
+			        {
+			          "mes año": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "me año": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.7566
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "calendario.mes_año.jerarquía_de_fecha": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendario",
+			          "VariationSource": "Mes/Año",
+			          "VariationSet": "Variación",
+			          "Hierarchy": "Jerarquía de fechas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "jerarquía de fecha": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "calendario.mes_año.año": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendario",
+			          "VariationSource": "Mes/Año",
+			          "VariationSet": "Variación",
+			          "Hierarchy": "Jerarquía de fechas",
+			          "HierarchyLevel": "Año"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "año": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "mes/año año": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "me/año año": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "mes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "me": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.7566
+			          }
+			        },
+			        {
+			          "mes año año": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "me año año": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.7566
+			          }
+			        },
+			        {
+			          "año año": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "calendario.mes_año.trimestre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendario",
+			          "VariationSource": "Mes/Año",
+			          "VariationSet": "Variación",
+			          "Hierarchy": "Jerarquía de fechas",
+			          "HierarchyLevel": "Trimestre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "trimestre": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "mes/año trimestre": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "me/año trimestre": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "mes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "me": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.7566
+			          }
+			        },
+			        {
+			          "mes año trimestre": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "me año trimestre": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.7566
+			          }
+			        },
+			        {
+			          "año trimestre": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "calendario.mes_año.me": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendario",
+			          "VariationSource": "Mes/Año",
+			          "VariationSet": "Variación",
+			          "Hierarchy": "Jerarquía de fechas",
+			          "HierarchyLevel": "Mes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "me": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "mes/año me": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "me/año me": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "mes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "mes año me": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "me año me": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.7566
+			          }
+			        },
+			        {
+			          "año me": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "calendario.mes_año.día": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendario",
+			          "VariationSource": "Mes/Año",
+			          "VariationSet": "Variación",
+			          "Hierarchy": "Jerarquía de fechas",
+			          "HierarchyLevel": "Día"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "día": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "mes/año día": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "me/año día": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "mes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "me": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.7566
+			          }
+			        },
+			        {
+			          "mes año día": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "me año día": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.7566
+			          }
+			        },
+			        {
+			          "año día": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "medida": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "medida": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.gastos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Gastos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "gastos": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.ingresos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Ingresos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ingresos": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.meta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Meta"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "meta": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.presupuesto": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Presupuesto"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "presupuesto": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.total_expectativa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Total Expectativa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total expectativa": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "aggregate expectativa": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "overall expectativa": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "medida.total_finanzas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Total Finanzas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total finanzas": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "aggregate finanza": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "overall finanza": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "medida.ut__esperada": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Ut. Esperada"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ut. esperada": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.utilidad": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Utilidad"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "utilidad": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.cuota_ingresos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Cuota Ingresos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cuota ingresos": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.cuota_gastos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Cuota Gastos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cuota gastos": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.cuota_utilidad": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Cuota Utilidad"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cuota utilidad": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.saldo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Saldo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "saldo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.sa_esperado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Sa. Esperado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sa esperado": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Saldo Esperado": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "medida.cuota_saldo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Cuota Saldo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cuota saldo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "categoria": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Categorias"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "categoria": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "categoria.categoria": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Categorias",
+			          "ConceptualProperty": "Categoria"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "categoria": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "categoria name": {
+			            "State": "Generated"
+			          }
+			        }
+			      ],
+			      "NameType": "Name"
+			    },
+			    "categoria.catotro": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Categorias",
+			          "ConceptualProperty": "Cat-Otros"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cat-otro": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cat otro": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    }
+			  },
+			  "Relationships": {
+			    "categoria_is_named_categoria": {
+			      "Binding": {
+			        "ConceptualEntity": "Categorias"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "categoria": {
+			          "Target": {
+			            "Entity": "categoria"
+			          }
+			        },
+			        "categoria.categoria": {
+			          "Target": {
+			            "Entity": "categoria.categoria"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "categoria"
+			            },
+			            "Name": {
+			              "Role": "categoria.categoria"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "categorias_are_names_IDs_of_categorias"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "categoria"
+			            },
+			            "Object": {
+			              "Role": "categoria.categoria"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "categorias_have_categorias"
+			        }
+			      ]
+			    },
+			    "calendario_has_fecha": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario": {
+			          "Target": {
+			            "Entity": "calendario"
+			          }
+			        },
+			        "calendario.fecha": {
+			          "Target": {
+			            "Entity": "calendario.fecha"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario"
+			            },
+			            "Object": {
+			              "Role": "calendario.fecha"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendarios_have_fechas"
+			        }
+			      ]
+			    },
+			    "calendario_has_año": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario": {
+			          "Target": {
+			            "Entity": "calendario"
+			          }
+			        },
+			        "calendario.año": {
+			          "Target": {
+			            "Entity": "calendario.año"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario"
+			            },
+			            "Object": {
+			              "Role": "calendario.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendarios_have_años"
+			        }
+			      ]
+			    },
+			    "calendario_has_mes_": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario": {
+			          "Target": {
+			            "Entity": "calendario"
+			          }
+			        },
+			        "calendario.mes_": {
+			          "Target": {
+			            "Entity": "calendario.mes_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario"
+			            },
+			            "Object": {
+			              "Role": "calendario.mes_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendarios_have_mes_"
+			        }
+			      ]
+			    },
+			    "calendario_has_nombre_del_me": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario": {
+			          "Target": {
+			            "Entity": "calendario"
+			          }
+			        },
+			        "calendario.nombre_del_me": {
+			          "Target": {
+			            "Entity": "calendario.nombre_del_me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario"
+			            },
+			            "Object": {
+			              "Role": "calendario.nombre_del_me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendarios_have_nombre_del_me"
+			        }
+			      ]
+			    },
+			    "calendario_has_me": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario": {
+			          "Target": {
+			            "Entity": "calendario"
+			          }
+			        },
+			        "calendario.me": {
+			          "Target": {
+			            "Entity": "calendario.me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario"
+			            },
+			            "Object": {
+			              "Role": "calendario.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendarios_have_me"
+			        }
+			      ]
+			    },
+			    "calendario_has_mes_año": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario": {
+			          "Target": {
+			            "Entity": "calendario"
+			          }
+			        },
+			        "calendario.mes_año": {
+			          "Target": {
+			            "Entity": "calendario.mes_año"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario"
+			            },
+			            "Object": {
+			              "Role": "calendario.mes_año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendarios_have_mes_años"
+			        }
+			      ]
+			    },
+			    "finanza_has_medida_gastos": {
+			      "Binding": {
+			        "ConceptualEntity": "Finanzas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "finanza": {
+			          "Target": {
+			            "Entity": "finanza"
+			          }
+			        },
+			        "medida.gastos": {
+			          "Target": {
+			            "Entity": "medida.gastos"
+			          }
+			        }
+			      }
+			    },
+			    "finanza_has_medida_ingresos": {
+			      "Binding": {
+			        "ConceptualEntity": "Finanzas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "finanza": {
+			          "Target": {
+			            "Entity": "finanza"
+			          }
+			        },
+			        "medida.ingresos": {
+			          "Target": {
+			            "Entity": "medida.ingresos"
+			          }
+			        }
+			      }
+			    },
+			    "expectativa_has_medida_meta": {
+			      "Binding": {
+			        "ConceptualEntity": "Expectativas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "expectativa": {
+			          "Target": {
+			            "Entity": "expectativa"
+			          }
+			        },
+			        "medida.meta": {
+			          "Target": {
+			            "Entity": "medida.meta"
+			          }
+			        }
+			      }
+			    },
+			    "expectativa_has_medida_presupuesto": {
+			      "Binding": {
+			        "ConceptualEntity": "Expectativas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "expectativa": {
+			          "Target": {
+			            "Entity": "expectativa"
+			          }
+			        },
+			        "medida.presupuesto": {
+			          "Target": {
+			            "Entity": "medida.presupuesto"
+			          }
+			        }
+			      }
+			    },
+			    "expectativa_has_medida_total_expectativa": {
+			      "Binding": {
+			        "ConceptualEntity": "Expectativas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "expectativa": {
+			          "Target": {
+			            "Entity": "expectativa"
+			          }
+			        },
+			        "medida.total_expectativa": {
+			          "Target": {
+			            "Entity": "medida.total_expectativa"
+			          }
+			        }
+			      }
+			    },
+			    "finanza_has_medida_total_finanzas": {
+			      "Binding": {
+			        "ConceptualEntity": "Finanzas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "finanza": {
+			          "Target": {
+			            "Entity": "finanza"
+			          }
+			        },
+			        "medida.total_finanzas": {
+			          "Target": {
+			            "Entity": "medida.total_finanzas"
+			          }
+			        }
+			      }
+			    },
+			    "expectativa_has_medida_ut__esperada": {
+			      "Binding": {
+			        "ConceptualEntity": "Expectativas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "expectativa": {
+			          "Target": {
+			            "Entity": "expectativa"
+			          }
+			        },
+			        "medida.ut__esperada": {
+			          "Target": {
+			            "Entity": "medida.ut__esperada"
+			          }
+			        }
+			      }
+			    },
+			    "finanza_has_medida_utilidad": {
+			      "Binding": {
+			        "ConceptualEntity": "Finanzas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "finanza": {
+			          "Target": {
+			            "Entity": "finanza"
+			          }
+			        },
+			        "medida.utilidad": {
+			          "Target": {
+			            "Entity": "medida.utilidad"
+			          }
+			        }
+			      }
+			    },
+			    "expectativa_has_medida_cuota_ingresos": {
+			      "Binding": {
+			        "ConceptualEntity": "Expectativas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "expectativa": {
+			          "Target": {
+			            "Entity": "expectativa"
+			          }
+			        },
+			        "medida.cuota_ingresos": {
+			          "Target": {
+			            "Entity": "medida.cuota_ingresos"
+			          }
+			        }
+			      }
+			    },
+			    "finanza_has_medida_cuota_ingresos": {
+			      "Binding": {
+			        "ConceptualEntity": "Finanzas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "finanza": {
+			          "Target": {
+			            "Entity": "finanza"
+			          }
+			        },
+			        "medida.cuota_ingresos": {
+			          "Target": {
+			            "Entity": "medida.cuota_ingresos"
+			          }
+			        }
+			      }
+			    },
+			    "expectativa_has_medida_cuota_gastos": {
+			      "Binding": {
+			        "ConceptualEntity": "Expectativas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "expectativa": {
+			          "Target": {
+			            "Entity": "expectativa"
+			          }
+			        },
+			        "medida.cuota_gastos": {
+			          "Target": {
+			            "Entity": "medida.cuota_gastos"
+			          }
+			        }
+			      }
+			    },
+			    "finanza_has_medida_cuota_gastos": {
+			      "Binding": {
+			        "ConceptualEntity": "Finanzas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "finanza": {
+			          "Target": {
+			            "Entity": "finanza"
+			          }
+			        },
+			        "medida.cuota_gastos": {
+			          "Target": {
+			            "Entity": "medida.cuota_gastos"
+			          }
+			        }
+			      }
+			    },
+			    "expectativa_has_medida_cuota_utilidad": {
+			      "Binding": {
+			        "ConceptualEntity": "Expectativas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "expectativa": {
+			          "Target": {
+			            "Entity": "expectativa"
+			          }
+			        },
+			        "medida.cuota_utilidad": {
+			          "Target": {
+			            "Entity": "medida.cuota_utilidad"
+			          }
+			        }
+			      }
+			    },
+			    "finanza_has_medida_cuota_utilidad": {
+			      "Binding": {
+			        "ConceptualEntity": "Finanzas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "finanza": {
+			          "Target": {
+			            "Entity": "finanza"
+			          }
+			        },
+			        "medida.cuota_utilidad": {
+			          "Target": {
+			            "Entity": "medida.cuota_utilidad"
+			          }
+			        }
+			      }
+			    },
+			    "finanza_has_medida_saldo": {
+			      "Binding": {
+			        "ConceptualEntity": "Finanzas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "finanza": {
+			          "Target": {
+			            "Entity": "finanza"
+			          }
+			        },
+			        "medida.saldo": {
+			          "Target": {
+			            "Entity": "medida.saldo"
+			          }
+			        }
+			      }
+			    },
+			    "expectativa_has_medida_sa_esperado": {
+			      "Binding": {
+			        "ConceptualEntity": "Expectativas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "expectativa": {
+			          "Target": {
+			            "Entity": "expectativa"
+			          }
+			        },
+			        "medida.sa_esperado": {
+			          "Target": {
+			            "Entity": "medida.sa_esperado"
+			          }
+			        }
+			      }
+			    },
+			    "expectativa_has_medida_cuota_saldo": {
+			      "Binding": {
+			        "ConceptualEntity": "Expectativas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "expectativa": {
+			          "Target": {
+			            "Entity": "expectativa"
+			          }
+			        },
+			        "medida.cuota_saldo": {
+			          "Target": {
+			            "Entity": "medida.cuota_saldo"
+			          }
+			        }
+			      }
+			    },
+			    "finanza_has_medida_cuota_saldo": {
+			      "Binding": {
+			        "ConceptualEntity": "Finanzas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "finanza": {
+			          "Target": {
+			            "Entity": "finanza"
+			          }
+			        },
+			        "medida.cuota_saldo": {
+			          "Target": {
+			            "Entity": "medida.cuota_saldo"
+			          }
+			        }
+			      }
+			    },
+			    "categoria_has_catotro": {
+			      "Binding": {
+			        "ConceptualEntity": "Categorias"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "categoria": {
+			          "Target": {
+			            "Entity": "categoria"
+			          }
+			        },
+			        "categoria.catotro": {
+			          "Target": {
+			            "Entity": "categoria.catotro"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "categoria"
+			            },
+			            "Object": {
+			              "Role": "categoria.catotro"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "categorias_have_catotros"
+			        }
+			      ]
+			    },
+			    "finanza_has_calendario": {
+			      "Binding": {
+			        "ConceptualEntity": "Finanzas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "finanza": {
+			          "Target": {
+			            "Entity": "finanza"
+			          }
+			        },
+			        "calendario": {
+			          "Target": {
+			            "Entity": "calendario"
+			          }
+			        }
+			      }
+			    },
+			    "finanza_has_categoria": {
+			      "Binding": {
+			        "ConceptualEntity": "Finanzas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "finanza": {
+			          "Target": {
+			            "Entity": "finanza"
+			          }
+			        },
+			        "categoria": {
+			          "Target": {
+			            "Entity": "categoria"
+			          }
+			        }
+			      }
+			    },
+			    "expectativa_has_calendario": {
+			      "Binding": {
+			        "ConceptualEntity": "Expectativas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "expectativa": {
+			          "Target": {
+			            "Entity": "expectativa"
+			          }
+			        },
+			        "calendario": {
+			          "Target": {
+			            "Entity": "calendario"
+			          }
+			        }
+			      }
+			    },
+			    "expectativa_has_categoria": {
+			      "Binding": {
+			        "ConceptualEntity": "Expectativas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "expectativa": {
+			          "Target": {
+			            "Entity": "expectativa"
+			          }
+			        },
+			        "categoria": {
+			          "Target": {
+			            "Entity": "categoria"
+			          }
+			        }
+			      }
+			    },
+			    "calendario_fecha_has_jerarquía_de_fecha": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.fecha": {
+			          "Target": {
+			            "Entity": "calendario.fecha"
+			          }
+			        },
+			        "calendario.fecha.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "calendario.fecha.jerarquía_de_fecha"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.fecha"
+			            },
+			            "Object": {
+			              "Role": "calendario.fecha.jerarquía_de_fecha"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fechas_have_jerarquía_de_fechas"
+			        }
+			      ]
+			    },
+			    "calendario_fecha_jerarquía_de_fecha_has_calendario_fecha_año": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.fecha.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "calendario.fecha.jerarquía_de_fecha"
+			          }
+			        },
+			        "calendario.fecha.año": {
+			          "Target": {
+			            "Entity": "calendario.fecha.año"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.fecha.jerarquía_de_fecha"
+			            },
+			            "Object": {
+			              "Role": "calendario.fecha.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "jerarquía_de_fechas_have_años"
+			        }
+			      ]
+			    },
+			    "calendario_fecha_jerarquía_de_fecha_has_calendario_fecha_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.fecha.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "calendario.fecha.jerarquía_de_fecha"
+			          }
+			        },
+			        "calendario.fecha.trimestre": {
+			          "Target": {
+			            "Entity": "calendario.fecha.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.fecha.jerarquía_de_fecha"
+			            },
+			            "Object": {
+			              "Role": "calendario.fecha.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "jerarquía_de_fechas_have_trimestres"
+			        }
+			      ]
+			    },
+			    "calendario_fecha_jerarquía_de_fecha_has_calendario_fecha_me": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.fecha.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "calendario.fecha.jerarquía_de_fecha"
+			          }
+			        },
+			        "calendario.fecha.me": {
+			          "Target": {
+			            "Entity": "calendario.fecha.me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.fecha.jerarquía_de_fecha"
+			            },
+			            "Object": {
+			              "Role": "calendario.fecha.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "jerarquía_de_fechas_have_me"
+			        }
+			      ]
+			    },
+			    "calendario_fecha_jerarquía_de_fecha_has_calendario_fecha_día": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.fecha.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "calendario.fecha.jerarquía_de_fecha"
+			          }
+			        },
+			        "calendario.fecha.día": {
+			          "Target": {
+			            "Entity": "calendario.fecha.día"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.fecha.jerarquía_de_fecha"
+			            },
+			            "Object": {
+			              "Role": "calendario.fecha.día"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "jerarquía_de_fechas_have_días"
+			        }
+			      ]
+			    },
+			    "calendario_fecha_año_has_calendario_fecha_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.fecha.año": {
+			          "Target": {
+			            "Entity": "calendario.fecha.año"
+			          }
+			        },
+			        "calendario.fecha.trimestre": {
+			          "Target": {
+			            "Entity": "calendario.fecha.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.fecha.año"
+			            },
+			            "Object": {
+			              "Role": "calendario.fecha.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "años_have_trimestres"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.fecha.trimestre"
+			            },
+			            "Object": {
+			              "Role": "calendario.fecha.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_años"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "calendario.fecha.trimestre"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "calendario.fecha.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_are_in_años"
+			        }
+			      ]
+			    },
+			    "calendario_fecha_trimestre_has_calendario_fecha_me": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.fecha.trimestre": {
+			          "Target": {
+			            "Entity": "calendario.fecha.trimestre"
+			          }
+			        },
+			        "calendario.fecha.me": {
+			          "Target": {
+			            "Entity": "calendario.fecha.me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.fecha.trimestre"
+			            },
+			            "Object": {
+			              "Role": "calendario.fecha.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_me"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.fecha.me"
+			            },
+			            "Object": {
+			              "Role": "calendario.fecha.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_have_trimestres"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "calendario.fecha.me"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "calendario.fecha.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_are_in_trimestres"
+			        }
+			      ]
+			    },
+			    "calendario_fecha_me_has_calendario_fecha_día": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.fecha.me": {
+			          "Target": {
+			            "Entity": "calendario.fecha.me"
+			          }
+			        },
+			        "calendario.fecha.día": {
+			          "Target": {
+			            "Entity": "calendario.fecha.día"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.fecha.me"
+			            },
+			            "Object": {
+			              "Role": "calendario.fecha.día"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_have_días"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.fecha.día"
+			            },
+			            "Object": {
+			              "Role": "calendario.fecha.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "días_have_me"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "calendario.fecha.día"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "calendario.fecha.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "días_are_in_me"
+			        }
+			      ]
+			    },
+			    "calendario_mes_año_has_jerarquía_de_fecha": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.mes_año": {
+			          "Target": {
+			            "Entity": "calendario.mes_año"
+			          }
+			        },
+			        "calendario.mes_año.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "calendario.mes_año.jerarquía_de_fecha"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.mes_año"
+			            },
+			            "Object": {
+			              "Role": "calendario.mes_año.jerarquía_de_fecha"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mes_años_have_jerarquía_de_fechas"
+			        }
+			      ]
+			    },
+			    "calendario_mes_año_jerarquía_de_fecha_has_calendario_mes_año_año": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.mes_año.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "calendario.mes_año.jerarquía_de_fecha"
+			          }
+			        },
+			        "calendario.mes_año.año": {
+			          "Target": {
+			            "Entity": "calendario.mes_año.año"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.mes_año.jerarquía_de_fecha"
+			            },
+			            "Object": {
+			              "Role": "calendario.mes_año.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "jerarquía_de_fechas_have_años1"
+			        }
+			      ]
+			    },
+			    "calendario_mes_año_jerarquía_de_fecha_has_calendario_mes_año_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.mes_año.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "calendario.mes_año.jerarquía_de_fecha"
+			          }
+			        },
+			        "calendario.mes_año.trimestre": {
+			          "Target": {
+			            "Entity": "calendario.mes_año.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.mes_año.jerarquía_de_fecha"
+			            },
+			            "Object": {
+			              "Role": "calendario.mes_año.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "jerarquía_de_fechas_have_trimestres1"
+			        }
+			      ]
+			    },
+			    "calendario_mes_año_jerarquía_de_fecha_has_calendario_mes_año_me": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.mes_año.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "calendario.mes_año.jerarquía_de_fecha"
+			          }
+			        },
+			        "calendario.mes_año.me": {
+			          "Target": {
+			            "Entity": "calendario.mes_año.me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.mes_año.jerarquía_de_fecha"
+			            },
+			            "Object": {
+			              "Role": "calendario.mes_año.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "jerarquía_de_fechas_have_me1"
+			        }
+			      ]
+			    },
+			    "calendario_mes_año_jerarquía_de_fecha_has_calendario_mes_año_día": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.mes_año.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "calendario.mes_año.jerarquía_de_fecha"
+			          }
+			        },
+			        "calendario.mes_año.día": {
+			          "Target": {
+			            "Entity": "calendario.mes_año.día"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.mes_año.jerarquía_de_fecha"
+			            },
+			            "Object": {
+			              "Role": "calendario.mes_año.día"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "jerarquía_de_fechas_have_días1"
+			        }
+			      ]
+			    },
+			    "calendario_mes_año_año_has_calendario_mes_año_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.mes_año.año": {
+			          "Target": {
+			            "Entity": "calendario.mes_año.año"
+			          }
+			        },
+			        "calendario.mes_año.trimestre": {
+			          "Target": {
+			            "Entity": "calendario.mes_año.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.mes_año.año"
+			            },
+			            "Object": {
+			              "Role": "calendario.mes_año.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "años_have_trimestres1"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.mes_año.trimestre"
+			            },
+			            "Object": {
+			              "Role": "calendario.mes_año.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_años1"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "calendario.mes_año.trimestre"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "calendario.mes_año.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_are_in_años1"
+			        }
+			      ]
+			    },
+			    "calendario_mes_año_trimestre_has_calendario_mes_año_me": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.mes_año.trimestre": {
+			          "Target": {
+			            "Entity": "calendario.mes_año.trimestre"
+			          }
+			        },
+			        "calendario.mes_año.me": {
+			          "Target": {
+			            "Entity": "calendario.mes_año.me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.mes_año.trimestre"
+			            },
+			            "Object": {
+			              "Role": "calendario.mes_año.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_me1"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.mes_año.me"
+			            },
+			            "Object": {
+			              "Role": "calendario.mes_año.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_have_trimestres1"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "calendario.mes_año.me"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "calendario.mes_año.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_are_in_trimestres1"
+			        }
+			      ]
+			    },
+			    "calendario_mes_año_me_has_calendario_mes_año_día": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario.mes_año.me": {
+			          "Target": {
+			            "Entity": "calendario.mes_año.me"
+			          }
+			        },
+			        "calendario.mes_año.día": {
+			          "Target": {
+			            "Entity": "calendario.mes_año.día"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.mes_año.me"
+			            },
+			            "Object": {
+			              "Role": "calendario.mes_año.día"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_have_días1"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario.mes_año.día"
+			            },
+			            "Object": {
+			              "Role": "calendario.mes_año.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "días_have_me1"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "calendario.mes_año.día"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "calendario.mes_año.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "días_are_in_me1"
+			        }
+			      ]
+			    }
+			  },
+			  "Agents": {
+			    "Internal": {
+			      "Version": "1.1.0"
+			    }
+			  }
+			}
+		contentType: json
+

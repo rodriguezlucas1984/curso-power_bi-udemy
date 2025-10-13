@@ -1,0 +1,97 @@
+table Medidas
+	lineageTag: 09946823-4abf-466d-92c9-caf9bdc292c2
+
+	measure Gastos = CALCULATE([Total Finanzas],Finanzas[Tipo]="Gastos")
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 6559fd1a-869a-407a-a226-dca4c960b083
+
+	measure Ingresos = ```
+			CALCULATE([Total Finanzas],Finanzas[Tipo]="Ingresos") 
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 3cc33494-b06d-4b7e-98c8-28eb2ed1d300
+
+	measure Meta = CALCULATE([Total Expectativa],Expectativas[Tipo]="Metas")
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 47d31363-a366-40f2-946b-ebcb90ffe86b
+
+	measure Presupuesto = CALCULATE([Total Expectativa],Expectativas[Tipo]="Presupuesto")
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: e56f0cb6-8af7-4e54-bb75-d6b893019790
+
+	measure 'Total Expectativa' = SUM(Expectativas[Cantidad])
+		formatString: 0
+		lineageTag: c797d8f6-d97a-460c-babb-8e18a514fb3d
+
+	measure 'Total Finanzas' = SUM(Finanzas[Cantidad])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 749e7fe3-7704-42c9-b3ac-d0b6a2b248a6
+
+	measure 'Ut. Esperada' = [Meta] -[Presupuesto]
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: c8e7f989-2284-4f76-ae70-62bd17692f19
+
+	measure Utilidad = [Ingresos] -[Gastos]
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 3f6fc8c5-12a2-40a5-b9fa-e3840101e343
+
+	measure 'Cuota Ingresos' =
+			
+			DIVIDE([Ingresos],[Meta],0)
+		formatString: 0\ %;-0\ %;0\ %
+		lineageTag: 8899c989-faa0-4dad-bee3-e3bb494c00b2
+
+	measure 'Cuota Gastos' = ```
+			DIVIDE([Gastos],[Presupuesto],0) 
+			```
+		formatString: 0\ %;-0\ %;0\ %
+		lineageTag: 983074ae-80c9-45e1-abec-a830e47de248
+
+	measure 'Cuota Utilidad' = [Utilidad]/[Ut. Esperada]
+		formatString: 0\ %;-0\ %;0\ %
+		lineageTag: ef677797-2cce-440c-803f-8ce76fb8d64d
+
+	measure Saldo = ```
+			
+			 CALCULATE(
+			    [Utilidad], // suma 
+			    FILTER(
+			        ALL(Finanzas), //Toda la tabla de finanzas
+			        Finanzas[Fecha]<=MAX(Finanzas[Fecha]) //Acumula asta la ultima fecha
+			    )
+			 )
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 3e6ffb0a-9b4f-4dcf-8b5f-fae64cc5680c
+
+	measure 'Sa. Esperado' = ```
+			
+			 CALCULATE(
+			    [Ut. Esperada],
+			    FILTER(
+			        ALL(Expectativas),
+			        Expectativas[Fecha]<= MAX(Expectativas[Fecha])
+			    )
+			)
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 0e6913ce-cffd-4359-994c-28e70ff1ab8f
+
+	measure 'Cuota Saldo' = ```
+			DIVIDE([Saldo],[Sa. Esperado],0) 
+			```
+		formatString: 0\ %;-0\ %;0\ %
+		lineageTag: ea607ebe-370f-4e20-a467-7fac55b39359
+
+	partition Medidas = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"Columna1", type text}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"Columna1"})
+				in
+				    #"Columnas quitadas"
+
+	annotation PBI_ResultType = Table
+

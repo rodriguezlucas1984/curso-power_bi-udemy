@@ -1,0 +1,100 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 335.25
+          },
+          "nodeIndex": "Expectativas",
+          "nodeLineageTag": "b3468cac-15d5-4819-9437-a64576bc092d",
+          "size": {
+            "height": 230,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 618.71654094824328,
+            "y": 328.4923387282812
+          },
+          "nodeIndex": "Finanzas",
+          "nodeLineageTag": "69dc9947-dba1-409d-9a2e-15e9bd3affe1",
+          "size": {
+            "height": 220,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 294.6,
+            "y": 11.25
+          },
+          "nodeIndex": "Calendario",
+          "nodeLineageTag": "324616a0-0c33-499d-bde9-626613da4973",
+          "size": {
+            "height": 281,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 932.97541492979838,
+            "y": 10.09052427726542
+          },
+          "nodeIndex": "Medidas",
+          "nodeLineageTag": "09946823-4abf-466d-92c9-caf9bdc292c2",
+          "size": {
+            "height": 488.35645317562125,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 343.77500915527344,
+            "y": 567.25
+          },
+          "nodeIndex": "Categorias",
+          "nodeLineageTag": "a282af14-c4f7-4d18-baa6-ac9db2851c36",
+          "size": {
+            "height": 160,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 3.7750091552734375,
+            "y": 9.625
+          },
+          "nodeIndex": "Fecha Actualización",
+          "nodeLineageTag": "99ad0857-1c88-4c76-8da5-f7b649d6595b",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas las tablas",
+      "zoomValue": 89.192590520569482,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas las tablas",
+  "defaultDiagram": "Todas las tablas"
+}

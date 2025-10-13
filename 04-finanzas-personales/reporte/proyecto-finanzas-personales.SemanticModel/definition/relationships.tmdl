@@ -1,0 +1,31 @@
+relationship 5817cfea-4e97-4602-9950-86dfdf491350
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendario.Fecha
+	toColumn: JerarquiaFechas1.Date
+
+relationship ad9b7b01-d164-4203-b570-34e23f4419ba
+	fromColumn: Expectativas.Fecha
+	toColumn: Calendario.Fecha
+
+relationship aeca6f72-1630-4c3e-a7bd-bae503ca36a8
+	fromColumn: Finanzas.Fecha
+	toColumn: Calendario.Fecha
+
+relationship b2b9f66f-5c61-43d4-93e8-621fd70264c1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendario.Mes/Año
+	toColumn: JerarquiaFechas2.Date
+
+relationship AutoDetected_9e3e917a-8e2d-4400-ad50-8e631de15201
+	fromColumn: Finanzas.Categoria
+	toColumn: Categorias.Categoria
+
+relationship AutoDetected_62491804-c8d7-4341-972b-0c0120b42b50
+	fromColumn: Expectativas.Categoria
+	toColumn: Categorias.Categoria
+
+relationship 9ba676c6-49be-4af6-b1dd-5c0df307b565
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Fecha Actualización'.'Ultima actualizacion'
+	toColumn: JerarquiaFechas3.Date
+

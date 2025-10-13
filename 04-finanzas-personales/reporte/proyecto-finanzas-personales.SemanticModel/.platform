@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "proyecto-finanzas-personales"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "da25b75d-4bb0-4e87-89e2-680ba0402969"
+  }
+}

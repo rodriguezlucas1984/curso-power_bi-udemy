@@ -1,0 +1,64 @@
+table Expectativas
+	lineageTag: b3468cac-15d5-4819-9437-a64576bc092d
+
+	column Tipo
+		dataType: string
+		isHidden
+		lineageTag: e0acfb79-663e-4d51-982d-84936cb2b68e
+		summarizeBy: none
+		sourceColumn: Tipo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Categoria
+		dataType: string
+		isHidden
+		lineageTag: bc0fa1e0-86c7-4a75-859f-62c5d6df72cf
+		summarizeBy: none
+		sourceColumn: Categoria
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fecha
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 744bdffe-2b54-4470-985c-bad9a44ca180
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Cantidad
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 9a2f9a49-420b-495e-a99a-13d7f5d965c5
+		summarizeBy: sum
+		sourceColumn: Cantidad
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Expectativas-5f59bea3-cf7d-42d8-aa77-11803e8f6222 = m
+		mode: import
+		source =
+				let
+				    Origen = Table.Combine({TablaMetas, TablaPresupuesto}),
+				    #"Columnas reordenadas" = Table.ReorderColumns(Origen,{"Tipo", "Categoria", "Fecha", "Cantidad"})
+				in
+				    #"Columnas reordenadas"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

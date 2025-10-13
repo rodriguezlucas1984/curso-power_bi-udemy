@@ -1,0 +1,35 @@
+table 'Fecha Actualización'
+	lineageTag: 99ad0857-1c88-4c76-8da5-f7b649d6595b
+
+	column 'Ultima actualizacion'
+		dataType: dateTime
+		formatString: d mmm yyyy hh:nn
+		lineageTag: ab494f38-0145-4058-b840-b40613fc42bb
+		summarizeBy: none
+		sourceColumn: Ultima actualizacion
+
+		variation Variación
+			isDefault
+			relationship: 9ba676c6-49be-4af6-b1dd-5c0df307b565
+			defaultHierarchy: JerarquiaFechas3.'Jerarquía de fechas'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	partition 'Fecha Actualización' = m
+		mode: import
+		source =
+				let
+				    Origen = DateTime.LocalNow(),
+				    #"Convertida en tabla" = #table(1, {{Origen}}),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Convertida en tabla",{{"Column1", "Ultima actualizacion"}})
+				in
+				    #"Columnas con nombre cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

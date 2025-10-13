@@ -1,0 +1,30 @@
+table Categorias
+	lineageTag: a282af14-c4f7-4d18-baa6-ac9db2851c36
+
+	column Categoria
+		dataType: string
+		lineageTag: a831633a-f57d-442e-b53b-7f0147ae6864
+		summarizeBy: none
+		sourceColumn: Categoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cat-Otros
+		dataType: string
+		lineageTag: c7c73bfb-83b4-47b6-85a4-d5c9974a7627
+		summarizeBy: none
+		sourceColumn: Cat-Otros
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Categorias = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("VcxBCgIxDIXhq0jXcwtxLYyzK7MonScE2hfJRM9vVRSzS76fJOd0ZhMiTd9hnXKa0e+ElSrKV3HT/R2O2mUrgU4N1U3q8C0GusFB6QK6hjYPKYdAF9hjfBnbvy5ouCrj9WKF+03NEfgz/WR9Ag==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Categoria = _t, #"Cat-Otros" = _t]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"Categoria", type text}, {"Cat-Otros", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,94 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/2.1.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY23SU04",
+      "reportVersionAtImport": "5.43",
+      "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "Custom16858964336240534.json",
+      "reportVersionAtImport": "5.65",
+      "type": "RegisteredResources"
+    }
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "CY23SU04",
+          "path": "BaseThemes/CY23SU04.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "Fondo+-+4+paneles34323737647041175.jpg",
+          "path": "Fondo+-+4+paneles34323737647041175.jpg",
+          "type": "Image"
+        },
+        {
+          "name": "Custom16858964336240534.json",
+          "path": "Custom16858964336240534.json",
+          "type": "CustomTheme"
+        },
+        {
+          "name": "Fondo+-+1+panel8617694058048615.jpg",
+          "path": "Fondo+-+1+panel8617694058048615.jpg",
+          "type": "Image"
+        },
+        {
+          "name": "Fondo+-+2+paneles01876230901890319.jpg",
+          "path": "Fondo+-+2+paneles01876230901890319.jpg",
+          "type": "Image"
+        },
+        {
+          "name": "Fondo+-+1+panel6109998536065222.jpg",
+          "path": "Fondo+-+1+panel6109998536065222.jpg",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
+  }
+}

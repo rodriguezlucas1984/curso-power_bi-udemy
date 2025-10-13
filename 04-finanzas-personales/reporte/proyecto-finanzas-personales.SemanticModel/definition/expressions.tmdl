@@ -1,0 +1,126 @@
+expression TablaGastos =
+		let
+		    Origen = Excel.Workbook(File.Contents(#"Datos origen" & "Finanzas.xlsx"), null, true),
+		    TablaGastos_Table = Origen{[Item="TablaGastos",Kind="Table"]}[Data],
+		    #"Tipo cambiado" = Table.TransformColumnTypes(TablaGastos_Table,{{"Categoria", type text}, {"Fecha", type date}, {"Cantidad", Int64.Type}}),
+		    #"Personalizada agregada" = Table.AddColumn(#"Tipo cambiado", "Tipo", each "Gastos")
+		in
+		    #"Personalizada agregada"
+	lineageTag: d085d83c-9230-4a74-83fe-9a358d691b25
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression TablaIngresos =
+		let
+		    Origen = Excel.Workbook(File.Contents(#"Datos origen" & "Finanzas.xlsx"), null, true),
+		    TablaIngresos_Table = Origen{[Item="TablaIngresos",Kind="Table"]}[Data],
+		    #"Tipo cambiado" = Table.TransformColumnTypes(TablaIngresos_Table,{{"Categoria", type text}, {"Fecha", type date}, {"Cantidad", Int64.Type}}),
+		    #"Personalizada agregada" = Table.AddColumn(#"Tipo cambiado", "Tipo", each "Ingresos")
+		in
+		    #"Personalizada agregada"
+	lineageTag: 52d749bd-005c-414b-bba7-9a3e5c50a869
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression TablaMetas =
+		let
+		    Origen = Excel.Workbook(File.Contents(#"Datos origen" & "Finanzas.xlsx"), null, true),
+		    TablaMetas_Table = Origen{[Item="TablaMetas",Kind="Table"]}[Data],
+		    #"Tipo cambiado" = Table.TransformColumnTypes(TablaMetas_Table,{{"Fecha", type text}, {"Remuneracion", Int64.Type}, {"Online", Int64.Type}}),
+		    #"Prefijo agregado" = Table.TransformColumns(#"Tipo cambiado", {{"Fecha", each "01/" & _, type text}}),
+		    #"Tipo cambiado1" = Table.TransformColumnTypes(#"Prefijo agregado",{{"Fecha", type date}}),
+		    #"Columna de anulación de dinamización" = Table.UnpivotOtherColumns(#"Tipo cambiado1", {"Fecha"}, "Atributo", "Valor"),
+		    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Columna de anulación de dinamización",{{"Atributo", "Categoria"}, {"Valor", "Cantidad"}}),
+		    #"Personalizada agregada" = Table.AddColumn(#"Columnas con nombre cambiado", "Tipo", each "Metas")
+		in
+		    #"Personalizada agregada"
+	lineageTag: 2200b85a-f4c3-4750-be71-99243d48c61e
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression TablaPresupuesto =
+		let
+		    Origen = Excel.Workbook(File.Contents(#"Datos origen" & "Finanzas.xlsx"), null, true),
+		    TablaPresupuesto_Table = Origen{[Item="TablaPresupuesto",Kind="Table"]}[Data],
+		    #"Tipo cambiado2" = Table.TransformColumnTypes(TablaPresupuesto_Table,{{"Categoria", type text}}),
+		    #"Columna de anulación de dinamización" = Table.UnpivotOtherColumns(#"Tipo cambiado2", {"Categoria"}, "Atributo", "Valor"),
+		    #"Prefijo agregado" = Table.TransformColumns(#"Columna de anulación de dinamización", {{"Atributo", each "01/" & _, type text}}),
+		    #"Tipo cambiado1" = Table.TransformColumnTypes(#"Prefijo agregado",{{"Atributo", type date}, {"Valor", Int64.Type}}),
+		    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Tipo cambiado1",{{"Atributo", "Fecha"}, {"Valor", "Cantidad"}}),
+		    #"Personalizada agregada" = Table.AddColumn(#"Columnas con nombre cambiado", "Tipo", each "Presupuesto")
+		in
+		    #"Personalizada agregada"
+	lineageTag: becb56d1-c8de-4cea-b3f2-db3bbfaa27a9
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression 'Datos origen' = "##repo\04-finanzas-personales\datos\" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+	lineageTag: ff8a4a3b-ba10-48f1-a878-93a1c20cd951
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Text
+
+expression Parámetro2 = #"Archivo de ejemplo" meta [IsParameterQuery=true, BinaryIdentifier=#"Archivo de ejemplo", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: e9e9f649-bcd7-4c27-8444-45021481f8b4
+	queryGroup: 'Transformar archivo de Calendario\Consultas auxiliares'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transformar archivo de ejemplo' =
+		let
+		    Origen = Excel.Workbook(Parámetro2, null, true),
+		    #"Hoja 1_Sheet" = Origen{[Item="Hoja 1",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(#"Hoja 1_Sheet", [PromoteAllScalars=true])
+		in
+		    #"Encabezados promovidos"
+	lineageTag: 8631ddaa-9e8b-4edd-99d6-7caadd83d022
+	queryGroup: 'Transformar archivo de Calendario'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression 'Archivo de ejemplo' =
+		let
+		    Origen = Folder.Files(#"Datos origen"),
+		    #"Archivos ocultos filtrados1" = Table.SelectRows(Origen, each [Attributes]?[Hidden]? <> true),
+		    #"Filas filtradas" = Table.SelectRows(#"Archivos ocultos filtrados1", each Text.Contains([Name], "Calendario")),
+		    Navegación1 = #"Filas filtradas"{0}[Content]
+		in
+		    Navegación1
+	lineageTag: 1c0c6352-e8c2-4090-8bac-a6289bc3ac29
+	queryGroup: 'Transformar archivo de Calendario\Consultas auxiliares'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transformar archivo' =
+		let
+		    Origen = (Parámetro2 as binary) => let
+		    Origen = Excel.Workbook(Parámetro2, null, true),
+		    #"Hoja 1_Sheet" = Origen{[Item="Hoja 1",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(#"Hoja 1_Sheet", [PromoteAllScalars=true])
+		in
+		    #"Encabezados promovidos"
+		in
+		    Origen
+	mAttributes: [ FunctionQueryBinding = "{""exemplarFormulaName"":""Transformar archivo de ejemplo""}" ]
+	lineageTag: 2ce7e2c6-e816-4839-8c17-237193f69da9
+	queryGroup: 'Transformar archivo de Calendario\Consultas auxiliares'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Function
+
