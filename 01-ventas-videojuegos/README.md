@@ -1,4 +1,4 @@
- Proyecto 1 – Ventas
+#  Proyecto 1 – Ventas Videojuegos
 
 ## 🎯 Objetivo
 Analizar las **ventas históricas de videojuegos** para identificar patrones de comportamiento, productos más vendidos y tendencias por región o plataforma.
