@@ -1,0 +1,165 @@
+table FactSales
+	lineageTag: 683e2c51-a826-4012-ad84-b9fe056f92dc
+
+	column OrderID
+		dataType: int64
+		formatString: 0
+		lineageTag: e783749e-b328-469c-9e1e-cf440d310824
+		summarizeBy: count
+		sourceColumn: OrderID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateKey
+		dataType: dateTime
+		isHidden
+		formatString: Short Date
+		lineageTag: b4a60c5b-0d48-45ba-8fb1-a6274e76afdd
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column channelKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 1ede43d9-c62c-4796-8d88-603896072ee0
+		summarizeBy: none
+		sourceColumn: channelKey
+
+		changedProperty = IsHidden
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 47f35843-8f3c-49c3-918c-d657e80266ac
+		summarizeBy: none
+		sourceColumn: StoreKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: d3789e39-2230-4fde-b368-a9ed54d635d5
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PromotionKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a69a6e28-1e7d-4578-88ff-6792793898a8
+		summarizeBy: none
+		sourceColumn: PromotionKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesQuantity
+		dataType: int64
+		formatString: 0
+		lineageTag: d3d3561d-721f-448d-aca8-32497d1ce933
+		summarizeBy: sum
+		sourceColumn: SalesQuantity
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReturnQuantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 84e1617a-7832-40ce-8fa9-d9e6b38ed953
+		summarizeBy: sum
+		sourceColumn: ReturnQuantity
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Devolución =
+			
+			IF( NOT FactSales[ReturnQuantity]=0,"Si","No")
+		lineageTag: 348f170d-7d85-469f-a574-53b29ea0e80d
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo Venta' = IF(FactSales[SalesQuantity]>10,"Mayoreo","Menudeo")
+		lineageTag: cc70cbb9-b4b9-48a2-9496-d8c80b967cc4
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo Devolución' = ```
+			
+			    IF( FactSales[ReturnQuantity]=0,
+			    BLANK(), 
+			        IF(FactSales[ReturnQuantity]=1,
+			        "Unica",
+			        "Multiple"
+			        )
+			)
+			```
+		lineageTag: 40d8e205-e2ee-46d5-8bac-744e3e35010b
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dcto Mayoreo' = ```
+			
+			 1 - IF ( FactSales[Tipo Venta]="Mayoreo" && FactSales[channelKey]=1 && FactSales[PromotionKey]=1 ,
+			    0.05,
+			    0
+			    )
+			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 9fad0dfe-889f-42ab-8355-c58f6e3da372
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactSales = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(#"Directorio datos" & "FactSales.txt"),[Delimiter=";", Columns=8, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    #"Texto extraído antes del delimitador" = Table.TransformColumns(#"Encabezados promovidos", {{"DateKey", each Text.BeforeDelimiter(_, " "), type text}}),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Texto extraído antes del delimitador",{{"DateKey", type date}, {"StoreKey", Int64.Type}, {"ProductKey", Int64.Type}, {"PromotionKey", Int64.Type}, {"SalesQuantity", Int64.Type}, {"ReturnQuantity", Int64.Type}, {"OrderID", Int64.Type}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

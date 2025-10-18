@@ -1,0 +1,71 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "a9ac8e71a9b241007d75",
+  "position": {
+    "x": 640,
+    "y": 114.39613526570048,
+    "z": 2000,
+    "height": 262.80193236714973,
+    "width": 604.95974235104666,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCalendar"
+                    }
+                  },
+                  "Property": "Nombre Mes"
+                }
+              },
+              "queryRef": "DimCalendar.Nombre Mes",
+              "nativeQueryRef": "Nombre Mes",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas DAX"
+                    }
+                  },
+                  "Property": "Total Ingresos"
+                }
+              },
+              "queryRef": "Medidas DAX.Total Ingresos",
+              "nativeQueryRef": "Total Ingresos"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas DAX"
+                    }
+                  },
+                  "Property": "Total Ingresos LY"
+                }
+              },
+              "queryRef": "Medidas DAX.Total Ingresos LY",
+              "nativeQueryRef": "Total Ingresos LY"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

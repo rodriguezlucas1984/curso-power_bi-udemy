@@ -1,0 +1,94 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "84ded9dc7a07d0754d04",
+  "position": {
+    "x": 871.55279503105578,
+    "y": 16.8944099378882,
+    "z": 3000,
+    "height": 703.60248447204958,
+    "width": 408.44720496894405,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCalendar"
+                    }
+                  },
+                  "Property": "Año"
+                }
+              },
+              "queryRef": "Sum(DimCalendar.Año)",
+              "nativeQueryRef": "Año"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCalendar"
+                    }
+                  },
+                  "Property": "Nombre Mes"
+                }
+              },
+              "queryRef": "DimCalendar.Nombre Mes",
+              "nativeQueryRef": "Nombre Mes"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCalendar"
+                    }
+                  },
+                  "Property": "Día"
+                }
+              },
+              "queryRef": "Sum(DimCalendar.Día)",
+              "nativeQueryRef": "Día"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas DAX"
+                    }
+                  },
+                  "Property": "Total Ingresos"
+                }
+              },
+              "queryRef": "Medidas DAX.Total Ingresos",
+              "nativeQueryRef": "Total Ingresos"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas DAX"
+                    }
+                  },
+                  "Property": "MTD Ingresos"
+                }
+              },
+              "queryRef": "Medidas DAX.MTD Ingresos",
+              "nativeQueryRef": "MTD Ingresos"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

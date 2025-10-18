@@ -1,0 +1,151 @@
+table DimStores
+	lineageTag: 017e53ad-7fe6-4b3f-a77d-cff53870c573
+
+	column StoreKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 9ca1219f-98bc-43b3-8420-1f0faf0deaae
+		summarizeBy: none
+		sourceColumn: StoreKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographyKey
+		dataType: int64
+		formatString: 0
+		lineageTag: f596d985-9eae-46aa-a5eb-63cacfcdc75d
+		summarizeBy: none
+		sourceColumn: GeographyKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreType
+		dataType: string
+		lineageTag: 687b67c1-c67f-4c6f-a773-378764644757
+		summarizeBy: none
+		sourceColumn: StoreType
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreName
+		dataType: string
+		lineageTag: 23c815b8-da01-4252-88b3-2b6a3ad0251e
+		summarizeBy: none
+		sourceColumn: StoreName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeCount
+		dataType: int64
+		formatString: 0
+		lineageTag: 53c67f68-fbbe-4b52-af5a-cff51b4cab9e
+		summarizeBy: none
+		sourceColumn: EmployeeCount
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SellingAreaSize
+		dataType: int64
+		formatString: 0
+		lineageTag: b5378904-65fc-4e06-bc22-bb64943fbb31
+		summarizeBy: none
+		sourceColumn: SellingAreaSize
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tienda = ```
+			
+			VAR SIN_STORE=SUBSTITUTE(DimStores[StoreName]," Store", BLANK())
+			VAR SIN_CONTOSO=SUBSTITUTE(SIN_STORE,"Contoso ", BLANK())
+			VAR INDICE= FIND(" No.",SIN_CONTOSO,1,LEN(SIN_CONTOSO)+1)
+			VAR SIN_NUMERO=LEFT(SIN_CONTOSO,INDICE-1)
+			RETURN
+			   SIN_NUMERO
+			       
+			```
+		lineageTag: fdf18956-ae40-45a3-a73a-264d1544e5d1
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ubicación Física' = ```
+			
+			 DimStores[Tienda] &", "& DimStores[RegionCountryName] & ", " & DimStores[ContinentName]
+			```
+		lineageTag: 46a79a56-741b-482a-ab61-3503d0bb0391
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContinentName
+		dataType: string
+		lineageTag: 493397f4-daf0-48fb-85c9-024d8a151584
+		dataCategory: Continent
+		summarizeBy: none
+		sourceColumn: ContinentName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column RegionCountryName
+		dataType: string
+		lineageTag: 30d2c99c-418b-42cc-b70e-e804948b1e7f
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: RegionCountryName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tamaño Tienda' =
+			
+			SWITCH(
+			    TRUE(),
+			    DimStores[SellingAreaSize]<=500, "Pequeña",
+			    DimStores[SellingAreaSize]<=800, "Mediana",
+			    DimStores[SellingAreaSize]>800, "Grande"
+			)
+		lineageTag: 64d8f9bd-3dd6-4601-a005-0a193d7d778f
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimStores = m
+		mode: import
+		source =
+				let
+				    Origen = Folder.Files(#"Directorio datos"),
+				    #"_DimStores xlsx" = Origen{[#"Folder Path"=#"Directorio datos",Name="DimStores.xlsx"]}[Content],
+				    #"Libro de Excel importado" = Excel.Workbook(#"_DimStores xlsx"),
+				    DimStores_Sheet = #"Libro de Excel importado"{[Item="DimStores",Kind="Sheet"]}[Data],
+				    #"Encabezados promovidos" = Table.PromoteHeaders(DimStores_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"StoreKey", Int64.Type}, {"GeographyKey", Int64.Type}, {"StoreType", type text}, {"StoreName", type text}, {"EmployeeCount", Int64.Type}, {"SellingAreaSize", Int64.Type}}),
+				    #"Consultas combinadas" = Table.NestedJoin(#"Tipo cambiado", {"GeographyKey"}, DimGeography, {"GeographyKey"}, "DimGeography", JoinKind.LeftOuter),
+				    #"Se expandió DimGeography" = Table.ExpandTableColumn(#"Consultas combinadas", "DimGeography", {"ContinentName", "RegionCountryName"}, {"ContinentName", "RegionCountryName"})
+				in
+				    #"Se expandió DimGeography"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

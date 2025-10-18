@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "2aac070342d356348630",
+  "displayName": "Parámetros What If",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280
+}

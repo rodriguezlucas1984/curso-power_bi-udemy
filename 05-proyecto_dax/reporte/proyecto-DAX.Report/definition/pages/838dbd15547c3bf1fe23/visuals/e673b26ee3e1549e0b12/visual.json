@@ -1,0 +1,79 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "e673b26ee3e1549e0b12",
+  "position": {
+    "x": 512.80125195618155,
+    "y": 59.092331768388107,
+    "z": 0,
+    "height": 290.45383411580593,
+    "width": 750.17214397496093
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimProduct"
+                    }
+                  },
+                  "Property": "ProductCategory"
+                }
+              },
+              "queryRef": "DimProduct.ProductCategory",
+              "nativeQueryRef": "ProductCategory1"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas DAX"
+                    }
+                  },
+                  "Property": "Cantidad Ventas"
+                }
+              },
+              "queryRef": "FactSales.Cantidad Ventas",
+              "nativeQueryRef": "Cantidad Ventas"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas DAX"
+                    }
+                  },
+                  "Property": "Cantidad Devoluciones"
+                }
+              },
+              "queryRef": "FactSales.Cantidad Devoluciones",
+              "nativeQueryRef": "Cantidad Devoluciones"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas DAX"
+                    }
+                  },
+                  "Property": "Cantidad Total"
+                }
+              },
+              "queryRef": "FactSales.Cantidad Total",
+              "nativeQueryRef": "Cantidad Total"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

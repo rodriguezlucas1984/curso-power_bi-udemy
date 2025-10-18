@@ -1,0 +1,32 @@
+/// Las tablas JerarquiaFechas_# son generadas por Power BI. Solo se les modifico el nombre.
+model Model
+	culture: es-ES
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-AR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["DimCalendar","DimChannel","DimGeography","DimProduct","DimProductCategory","DimProductSubcategory","DimPromotion","DimStores","FactSales","Medidas DAX","Directorio datos"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.145.1457.0 (25.07)+6e87ffa743c5aa106a85a0b5e383d76d522045ba
+
+annotation PBI_ProTooling = ["DaxQueryView_Desktop","DevMode"]
+
+ref table DimCalendar
+ref table JerarquiaFecha_1
+ref table DimChannel
+ref table DimProduct
+ref table DimPromotion
+ref table JerarquiaFecha_2
+ref table JerarquiaFecha_3
+ref table DimStores
+ref table FactSales
+ref table 'Medidas DAX'
+ref table 'Parámetro UnitPrice'
+ref table 'Parámetro UnitCost'
+
+ref cultureInfo es-ES
+

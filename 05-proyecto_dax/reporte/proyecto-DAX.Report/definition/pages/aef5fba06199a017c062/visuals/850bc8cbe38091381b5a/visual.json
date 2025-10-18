@@ -1,0 +1,83 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "850bc8cbe38091381b5a",
+  "position": {
+    "x": 481.48774302620456,
+    "y": 351.64835164835165,
+    "z": 3000,
+    "height": 143.90532544378698,
+    "width": 459.84784446322908,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimStores"
+                    }
+                  },
+                  "Property": "ContinentName"
+                }
+              },
+              "queryRef": "DimStores.ContinentName",
+              "nativeQueryRef": "ContinentName1"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas DAX"
+                    }
+                  },
+                  "Property": "Cantidad de Tiendas"
+                }
+              },
+              "queryRef": "Medidas DAX.Cantidad de Tiendas",
+              "nativeQueryRef": "Cantidad de Tiendas"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas DAX"
+                    }
+                  },
+                  "Property": "Cantidad de Tiendas con Ventas"
+                }
+              },
+              "queryRef": "Medidas DAX.Cantidad de Tiendas con Ventas",
+              "nativeQueryRef": "Cantidad de Tiendas con Ventas"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Medidas DAX"
+                  }
+                },
+                "Property": "Cantidad de Tiendas con Ventas"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

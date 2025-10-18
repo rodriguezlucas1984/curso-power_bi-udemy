@@ -1,0 +1,111 @@
+table DimPromotion
+	lineageTag: c5120260-e4d1-4d38-8ffc-8b9724b5ca04
+
+	column PromotionKey
+		dataType: int64
+		formatString: 0
+		lineageTag: b7028f6d-c4c6-4cfc-ac91-ed4c27fbda69
+		summarizeBy: none
+		sourceColumn: PromotionKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PromotionLabel
+		dataType: int64
+		formatString: 0
+		lineageTag: 53765419-93ae-43bb-82cc-d510bb02b0a7
+		summarizeBy: sum
+		sourceColumn: PromotionLabel
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PromotionName
+		dataType: string
+		lineageTag: 7c7762f7-f5e5-4955-a94c-eb08114baacf
+		summarizeBy: none
+		sourceColumn: PromotionName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiscountPercent
+		dataType: double
+		lineageTag: 75151ce0-a8cb-4a9b-b8ad-3c5c98799452
+		summarizeBy: sum
+		sourceColumn: DiscountPercent
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column StartDate
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 744f8e07-2d86-43bd-8a01-82bfef973d84
+		summarizeBy: none
+		sourceColumn: StartDate
+
+		variation Variación
+			isDefault
+			relationship: 596a6a13-a191-4381-8aca-584862ee6a97
+			defaultHierarchy: JerarquiaFecha_2.'Jerarquía de fechas'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column EndDate
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 3077ba36-338e-48b8-a343-851ef18b97b6
+		summarizeBy: none
+		sourceColumn: EndDate
+
+		variation Variación
+			isDefault
+			relationship: fa16a536-7466-4b9b-b7ad-a3c347afa6e9
+			defaultHierarchy: JerarquiaFecha_3.'Jerarquía de fechas'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DiferenciaDias = ```
+			DATEDIFF(DimPromotion[StartDate],DimPromotion[EndDate],DAY) 
+			```
+		formatString: 0
+		lineageTag: 5fd41272-612a-42a2-b937-20f399f9bd90
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimPromotion = m
+		mode: import
+		source =
+				let
+				    Origen = Folder.Files(#"Directorio datos"),
+				    #"_DimPromotion xlsx" = Origen{[#"Folder Path"=#"Directorio datos",Name="DimPromotion.xlsx"]}[Content],
+				    #"Libro de Excel importado" = Excel.Workbook(#"_DimPromotion xlsx"),
+				    DimPromotion_Sheet = #"Libro de Excel importado"{[Item="DimPromotion",Kind="Sheet"]}[Data],
+				    #"Encabezados promovidos" = Table.PromoteHeaders(DimPromotion_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"PromotionKey", Int64.Type}, {"PromotionLabel", Int64.Type}, {"PromotionName", type text}, {"DiscountPercent", type number}, {"StartDate", type date}, {"EndDate", type date}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,412 @@
+table 'Medidas DAX'
+	lineageTag: 07716153-4737-4a68-aa13-ca24414bf5fd
+
+	measure 'Cantidad Devoluciones' =
+			
+			SUM(FactSales[ReturnQuantity])
+		formatString: #,0
+		lineageTag: 86578143-dec3-41d0-ad8f-d2341d278fd8
+
+		changedProperty = IsHidden
+
+	measure 'Cantidad Total' = [Cantidad Ventas]-[Cantidad Devoluciones]
+		formatString: #,0
+		lineageTag: 86856724-686c-44e5-a6e5-7aad1a9408c4
+
+		changedProperty = IsHidden
+
+	measure 'Cantidad Ventas' =
+			
+			SUM(FactSales[SalesQuantity])
+		formatString: #,0
+		lineageTag: 57040290-c406-40da-ba11-4a7786a602ae
+
+		changedProperty = IsHidden
+
+	measure 'Ratio Devoluciones' = ```
+			
+			 DIVIDE([Cantidad Devoluciones],[Cantidad Ventas],0)
+			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: f7e4dc02-15e9-4362-b416-f3f55bd8cf47
+
+		changedProperty = IsHidden
+
+	measure 'PU Promedio' =
+			
+			AVERAGE(DimProduct[UnitPrice])
+		lineageTag: 8c38fee1-c1d5-4031-9321-cbe1863816a7
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cantidad de Tiendas' = ```
+			
+			 COUNTROWS(DimStores)
+			```
+		formatString: 0
+		lineageTag: a9a64550-42f6-4f25-a34b-694fd606d37e
+
+		changedProperty = IsHidden
+
+	measure 'Cantidad de Tiendas con Ventas' =
+			
+			DISTINCTCOUNT(FactSales[StoreKey])
+		formatString: 0
+		lineageTag: 5914c0aa-307e-46a0-ad2c-8aa228b144e6
+
+		changedProperty = IsHidden
+
+	measure 'Cantidad de Regiones' =
+			
+			COUNTA(DimStores[RegionCountryName])
+		formatString: 0
+		lineageTag: c1ea64bd-4334-4748-a294-66a9ba85013d
+
+		changedProperty = IsHidden
+
+	measure 'Cantidad de Regiones en Blanco' =
+			
+			COUNTBLANK(DimStores[RegionCountryName])
+		formatString: 0
+		lineageTag: 0e09a278-8e4c-4d6f-8621-80a04caba65b
+
+		changedProperty = IsHidden
+
+	measure 'Cantidad Regiones Distintas' =
+			
+			DISTINCTCOUNT(DimStores[RegionCountryName])
+		formatString: 0
+		lineageTag: 6dd4cbb0-69cc-4a4c-8925-7854463302e4
+
+		changedProperty = IsHidden
+
+	measure 'Total Ordenes' = ```
+			
+			 COUNTROWS(FactSales)
+			```
+		formatString: #,0
+		lineageTag: 12b7854d-6203-470a-98d2-eb20dd3c940f
+
+		changedProperty = IsHidden
+
+	measure 'Total Ordenes Devueltas' = ```
+			
+			 CALCULATE(
+			    [Total Ordenes],
+			    FactSales[Devolución]="SI"
+			    //,DimChannel[ChannelName]="Store"
+			)
+			```
+		formatString: 0
+		lineageTag: bb006b6a-73e0-40d2-af52-0f5963c3a955
+
+		changedProperty = IsHidden
+
+	measure 'ALL Total Ordenes' =
+			
+			CALCULATE(
+			    COUNTROWS(FactSales),
+			    ALL()
+			)
+		formatString: #,0
+		lineageTag: ae5021cb-82c4-450e-973f-e661404c0484
+
+		changedProperty = IsHidden
+
+	measure '% ALL Ordenes' =
+			
+			DIVIDE(
+			    [Total Ordenes],
+			    [ALL Total Ordenes]
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: bc5c0e6f-e91a-4542-9e3a-fd5202a38111
+
+		changedProperty = IsHidden
+
+	measure '% ALL Computers Category' =
+			
+			VAR _Cantidad=CALCULATE (
+			    [Total Ordenes],
+			    FILTER(ALL(DimProduct),DimProduct[ProductCategory]="Computers")
+			   // DimProductCategory[ProductCategory]="Computers"
+			    )
+			RETURN
+			    DIVIDE([Total Ordenes],_Cantidad)
+		formatString: 0\ %;-0\ %;0\ %
+		lineageTag: 655e449d-3fce-4196-a2bf-12fc2fc8ffb7
+
+		changedProperty = IsHidden
+
+	measure 'Total Ingresos' =
+			
+			SUMX(
+			    FactSales,
+			    (FactSales[SalesQuantity] -FactSales[ReturnQuantity])*
+			    RELATED(DimProduct[UnitPrice])*
+			    FactSales[Dcto Mayoreo]*
+			    (1-RELATED(DimPromotion[DiscountPercent]))
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 797e581e-049b-4c7b-b93c-047ede0bfa29
+
+		changedProperty = IsHidden
+
+	measure 'YTC Ingresos' = ```
+			
+			 CALCULATE(
+			    [Total Ingresos],
+			    DATESYTD(DimCalendar[DateKey])
+			 )
+			```
+		formatString: 0.00
+		lineageTag: d5931696-7ff4-48c9-8c28-ea7486d027d7
+
+		changedProperty = IsHidden
+
+	measure 'YTD Ingresos 2' = ```
+			
+			 TOTALYTD([Total Ingresos],DimCalendar[DateKey])
+			```
+		formatString: #,0.00
+		lineageTag: dbc39c4b-e6b4-4ced-a3ef-61a7a17a66d9
+
+		changedProperty = IsHidden
+
+	measure 'MTD Ingresos' = ```
+			
+			 TOTALMTD([Total Ingresos],DimCalendar[DateKey])
+			```
+		lineageTag: 9c7fb283-7133-4374-9c31-2da1eb0bb83f
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Ingresos LY' =
+			//LastYear
+			CALCULATE(
+			    [Total Ingresos],
+			    DATEADD(DimCalendar[DateKey],-1,YEAR) //SAMEPERIODLASTYEAR(DimCalendar[DateKey])
+			)
+		formatString: #,0
+		lineageTag: 2a8edd94-8148-407c-995c-a33c191856fe
+
+		changedProperty = IsHidden
+
+	measure 'Total Ingresos Var LY' =
+			
+			[Total Ingresos]-[Total Ingresos LY]
+		lineageTag: 07d70226-4938-4828-a3e4-24892b2bb183
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Ingresos  AD' =
+			// Antes del descuento
+			SUMX(
+			    FactSales,
+			    FactSales[SalesQuantity]*RELATED(DimProduct[UnitPrice])
+			)
+		lineageTag: f1522a36-490c-48dc-85f8-0c687bf5f384
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Ingresos LM' =
+			
+			CALCULATE(
+			    [Total Ingresos],
+			    DATEADD(DimCalendar[DateKey],-1,MONTH)
+			)
+		lineageTag: 6104a6ce-a100-457a-8fdd-6c28ee4a01d5
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Rank Ingresos Stores' = ```
+			
+			 RANKX(
+			    ALL(DimStores), 
+			    [Total Ingresos],
+			    ,
+			    DESC
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 7f80a243-0314-4a1b-92b5-1eed56f8d9b9
+
+		changedProperty = IsHidden
+
+	measure 'Rank Ingresos Tiendas' =
+			
+			RANKX(
+			    ALL(DimStores[Tienda]),
+			    [Total Ingresos]
+			)
+		formatString: 0
+		lineageTag: cbb7acca-8292-4a51-ac98-d8350c7962eb
+
+		changedProperty = IsHidden
+
+	measure 'Rank Ingresos StoresNames' =
+			
+			RANKX(
+			    ALL(DimStores[StoreName]),
+			    [Total Ingresos]
+			)
+		formatString: 0
+		lineageTag: ccf0873f-e356-480f-a10d-32fbd9a7a3f2
+
+		changedProperty = IsHidden
+
+	measure 'Rank Ingresos Tiendas CAT' =
+			
+			SWITCH(
+			    TRUE(),
+			    [Rank Ingresos StoresNames]<=10 ,"⭐⭐⭐⭐⭐",
+			    [Rank Ingresos StoresNames]<=25 ,"⭐⭐⭐⭐",
+			    [Rank Ingresos StoresNames]<=50 ,"⭐⭐⭐",
+			    [Rank Ingresos StoresNames]<=100 ,"⭐⭐",
+			    "⭐"
+			)
+		lineageTag: 0b19db19-b7bb-4395-8eb0-959f41398178
+
+		changedProperty = IsHidden
+
+	measure 'Titulo Ingresos' =
+			
+			"Total Ingresos: " &
+			FORMAT([Total Ingresos],"Currency", "es-AR")
+		lineageTag: 8ec0bbc1-ad23-43a7-b910-73a94aa21911
+
+		changedProperty = IsHidden
+
+	measure 'Titulo Devoluciones' =
+			
+			VAR _indicador= if([Ratio Devoluciones]<=0.01,"✅","❌")
+			RETURN
+			"% Devoluciones: " & FORMAT([Ratio Devoluciones],"Percent")& _indicador &
+			" | Cantidad: " & [Total Ordenes Devueltas]
+		lineageTag: 7197216c-9912-4679-99d6-ea858afbce33
+
+		changedProperty = IsHidden
+
+	measure 'Titulo Filtros' = ```
+			
+			VAR _FiltroAnio= SELECTEDVALUE(DimCalendar[Año],"Multiples")
+			VAR _FiltroProd= SELECTEDVALUE(DimProduct[ProductCategory],"Multiples")
+			VAR _FiltroCont= SELECTEDVALUE(DimStores[ContinentName],"Multiples")
+			RETURN
+			"Comparativa de Total Ingresos vs Año segmentado por:  
+			- Año: " & _FiltroAnio & 
+			" - Producto: "& _FiltroProd  & 
+			" - Continente: "& _FiltroCont
+			```
+		lineageTag: 3b780787-6a24-4907-8c8b-8efd47674dc9
+
+		changedProperty = IsHidden
+
+	measure 'Titulo Ingresos Var LY' = ```
+			
+			VAR _indicador= IF([Total Ingresos Var LY]>=0,"✅","❌")
+			RETURN
+			"Total Ingresos: " & FORMAT([Total Ingresos],"Currency","es-AR")& _indicador 
+			```
+		lineageTag: c47d1fd3-86ba-455c-ac6f-e2dd841fb93c
+
+		changedProperty = IsHidden
+
+	measure 'Total Costos' =
+			
+			SUMX(
+			    FactSales,
+			    (FactSales[SalesQuantity] -FactSales[ReturnQuantity])*
+			    RELATED(DimProduct[UnitCost])
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: f6ad033e-9b2d-4fbf-aea0-0cebed5a04a5
+
+		changedProperty = IsHidden
+
+	measure 'Total Beneficios' =
+			
+			[Total Ingresos] -[Total Costos]
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 7948116d-7a0e-4bda-bb4f-6c7e3ec920f3
+
+		changedProperty = IsHidden
+
+	measure '% Margen' =
+			
+			DIVIDE([Total Beneficios],[Total Ingresos],0)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 319a7557-4158-4961-b465-77d5a3d5a4a6
+
+		changedProperty = IsHidden
+
+	measure 'S Total Ingresos' =
+			
+			SUMX(
+			    FactSales,
+			    (FactSales[SalesQuantity] -FactSales[ReturnQuantity])*
+			    RELATED(DimProduct[UnitPrice])*
+			    ('Parámetro UnitPrice'[Valor de Parámetro UnitPrice]+1)*
+			    FactSales[Dcto Mayoreo]*
+			    (1-RELATED(DimPromotion[DiscountPercent]))
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: f13b0e55-876e-46b4-9c00-c3b04eb1a89c
+
+		changedProperty = IsHidden
+
+	measure 'S Total Costos' =
+			
+			SUMX(
+			    FactSales,
+			    (FactSales[SalesQuantity] -FactSales[ReturnQuantity])*
+			    ('Parámetro UnitCost'[Valor de Parámetro UnitCost] +1)*
+			    RELATED(DimProduct[UnitCost])
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: cc8f3c05-0cab-40a0-abd2-0f22e3c4092b
+
+		changedProperty = IsHidden
+
+	measure 'S Total Beneficios' =
+			
+			[S Total Ingresos] -[S Total Costos]
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 38f8521b-f5ec-4ab7-9a1f-cac1396d9012
+
+		changedProperty = IsHidden
+
+	measure 'S % Margen' = ```
+			
+			 DIVIDE([S Total Beneficios] , [S Total Ingresos],0)
+			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 6c2ae096-6ef7-42e6-acbb-b4388c6b7303
+
+		changedProperty = IsHidden
+
+	partition 'Medidas DAX' = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"Columna1", type text}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"Columna1"})
+				in
+				    #"Columnas quitadas"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

@@ -1,0 +1,149 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "6c434c285584079ebe5c",
+  "position": {
+    "x": 96.806722689075627,
+    "y": 219.03743315508021,
+    "z": 0,
+    "height": 455.67608861726507,
+    "width": 1083.4530175706645
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimProduct"
+                    }
+                  },
+                  "Property": "ProductSubcategoryName"
+                }
+              },
+              "queryRef": "DimProduct.ProductSubcategoryName",
+              "nativeQueryRef": "ProductSubcategoryName"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas DAX"
+                    }
+                  },
+                  "Property": "Total Ingresos"
+                }
+              },
+              "queryRef": "Medidas DAX.Total Ingresos",
+              "nativeQueryRef": "Total Ingresos"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas DAX"
+                    }
+                  },
+                  "Property": "Total Costos"
+                }
+              },
+              "queryRef": "Medidas DAX.Total Costos",
+              "nativeQueryRef": "Total Costos"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas DAX"
+                    }
+                  },
+                  "Property": "Total Beneficios"
+                }
+              },
+              "queryRef": "Medidas DAX.Total Beneficios",
+              "nativeQueryRef": "Total Beneficios"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas DAX"
+                    }
+                  },
+                  "Property": "% Margen"
+                }
+              },
+              "queryRef": "Medidas DAX.% Margen",
+              "nativeQueryRef": "% Margen"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas DAX"
+                    }
+                  },
+                  "Property": "S Total Ingresos"
+                }
+              },
+              "queryRef": "Medidas DAX.S Total Ingresos",
+              "nativeQueryRef": "S Total Ingresos"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas DAX"
+                    }
+                  },
+                  "Property": "S Total Costos"
+                }
+              },
+              "queryRef": "Medidas DAX.S Total Costos",
+              "nativeQueryRef": "S Total Costos"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas DAX"
+                    }
+                  },
+                  "Property": "S Total Beneficios"
+                }
+              },
+              "queryRef": "Medidas DAX.S Total Beneficios",
+              "nativeQueryRef": "S Total Beneficios"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas DAX"
+                    }
+                  },
+                  "Property": "S % Margen"
+                }
+              },
+              "queryRef": "Medidas DAX.S % Margen",
+              "nativeQueryRef": "S % Margen"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,203 @@
+table DimProduct
+	lineageTag: dc11a3ff-3c1b-456b-9ddd-5cc9718bad0e
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 4893d6fe-105e-4512-aba8-a5e9bcbb1af2
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductName
+		dataType: string
+		lineageTag: 544e1b37-f77c-406f-8994-1a2cd6834c90
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductDescription
+		dataType: string
+		lineageTag: 02f8bf4b-afbb-44a9-a93d-7633ec8238e8
+		summarizeBy: none
+		sourceColumn: ProductDescription
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductSubcategoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: cb966f77-e047-4507-8793-a5606022291a
+		summarizeBy: none
+		sourceColumn: ProductSubcategoryKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Manufacturer
+		dataType: string
+		lineageTag: e2b9ca34-20c8-495e-95d1-d0f6fa333e7e
+		summarizeBy: none
+		sourceColumn: Manufacturer
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BrandName
+		dataType: string
+		lineageTag: 0c44f08e-b9e1-402e-aff8-e45454bfa11b
+		summarizeBy: none
+		sourceColumn: BrandName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClassID
+		dataType: int64
+		formatString: 0
+		lineageTag: a6056f49-9546-49d5-a6de-a8a926e12556
+		summarizeBy: none
+		sourceColumn: ClassID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClassName
+		dataType: string
+		lineageTag: 2ba7f45a-401f-4b8f-be51-5fd84bf9b9e9
+		summarizeBy: none
+		sourceColumn: ClassName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ColorID
+		dataType: int64
+		formatString: 0
+		lineageTag: 96517ef7-f9e4-4eee-b42a-f18aeecd11c0
+		summarizeBy: none
+		sourceColumn: ColorID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ColorName
+		dataType: string
+		lineageTag: 49dc5728-58fc-4ad2-a917-d2d63174fa41
+		summarizeBy: none
+		sourceColumn: ColorName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Size
+		dataType: string
+		lineageTag: 678bbbd8-84c4-45f3-bf1b-1b0f28f74b96
+		summarizeBy: none
+		sourceColumn: Size
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weight
+		dataType: double
+		lineageTag: 6ff7dc32-4aaf-4c2d-857e-993d4eda55f3
+		summarizeBy: none
+		sourceColumn: Weight
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UnitCost
+		dataType: double
+		lineageTag: 87d55eee-e525-4082-a536-f8fd3f871058
+		summarizeBy: none
+		sourceColumn: UnitCost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UnitPrice
+		dataType: double
+		lineageTag: 4697c4a2-a61a-49db-a2d4-5054c907c7b1
+		summarizeBy: none
+		sourceColumn: UnitPrice
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ProductSubcategoryName
+		dataType: string
+		lineageTag: b985a53d-eeba-4276-aacb-bcf06b21bf91
+		summarizeBy: none
+		sourceColumn: ProductSubcategoryName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductCategoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 1abed59f-65ad-4577-95fc-cd16b0af01d3
+		summarizeBy: none
+		sourceColumn: ProductCategoryKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductCategory
+		dataType: string
+		lineageTag: 261d1b8b-ffec-4c60-8d34-464bbabb4256
+		summarizeBy: none
+		sourceColumn: ProductCategory
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimProduct = m
+		mode: import
+		source =
+				let
+				    Origen = Folder.Files(#"Directorio datos"),
+				    #"_DimProduct xlsx" = Origen{[#"Folder Path"=#"Directorio datos",Name="DimProduct.xlsx"]}[Content],
+				    #"Libro de Excel importado" = Excel.Workbook(#"_DimProduct xlsx"),
+				    DimProduct_Sheet = #"Libro de Excel importado"{[Item="DimProduct",Kind="Sheet"]}[Data],
+				    #"Encabezados promovidos" = Table.PromoteHeaders(DimProduct_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"ProductKey", Int64.Type}, {"ProductName", type text}, {"ProductDescription", type text}, {"ProductSubcategoryKey", Int64.Type}, {"Manufacturer", type text}, {"BrandName", type text}, {"ClassID", Int64.Type}, {"ClassName", type text}, {"ColorID", Int64.Type}, {"ColorName", type text}, {"Size", type text}, {"Weight", type number}, {"UnitCost", type number}, {"UnitPrice", type number}}),
+				    #"Consultas combinadas" = Table.NestedJoin(#"Tipo cambiado", {"ProductSubcategoryKey"}, DimProductSubcategory, {"ProductSubcategoryKey"}, "DimProductSubcategory", JoinKind.LeftOuter),
+				    #"Se expandió DimProductSubcategory" = Table.ExpandTableColumn(#"Consultas combinadas", "DimProductSubcategory", {"ProductSubcategoryName", "ProductCategoryKey", "ProductCategory"}, {"ProductSubcategoryName", "ProductCategoryKey", "ProductCategory"})
+				in
+				    #"Se expandió DimProductSubcategory"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

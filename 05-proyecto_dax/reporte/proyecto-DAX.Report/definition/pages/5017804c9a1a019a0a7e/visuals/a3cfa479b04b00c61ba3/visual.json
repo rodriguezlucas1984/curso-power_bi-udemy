@@ -1,0 +1,96 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "a3cfa479b04b00c61ba3",
+  "position": {
+    "x": 10.110584518167457,
+    "y": 0,
+    "z": 0,
+    "height": 197.15639810426541,
+    "width": 606.6350710900474
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimProduct"
+                    }
+                  },
+                  "Property": "ProductCategory"
+                }
+              },
+              "queryRef": "DimProduct.ProductCategory",
+              "nativeQueryRef": "ProductCategory1"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas DAX"
+                    }
+                  },
+                  "Property": "Total Ordenes"
+                }
+              },
+              "queryRef": "Medidas DAX.Total Ordenes",
+              "nativeQueryRef": "Total Ordenes"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas DAX"
+                    }
+                  },
+                  "Property": "% ALL Ordenes"
+                }
+              },
+              "queryRef": "Medidas DAX.% ALL Ordenes",
+              "nativeQueryRef": "% ALL Ordenes"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas DAX"
+                    }
+                  },
+                  "Property": "% ALL Computers Category"
+                }
+              },
+              "queryRef": "Medidas DAX.% ALL Computers Category",
+              "nativeQueryRef": "% ALL Computers Category"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Medidas DAX"
+                  }
+                },
+                "Property": "Total Ordenes"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

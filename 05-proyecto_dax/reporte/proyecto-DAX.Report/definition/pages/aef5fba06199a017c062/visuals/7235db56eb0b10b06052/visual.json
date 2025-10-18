@@ -1,0 +1,80 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "7235db56eb0b10b06052",
+  "position": {
+    "x": 481.48774302620456,
+    "y": 520.43956043956041,
+    "z": 4000,
+    "height": 143.90532544378698,
+    "width": 656.770921386306,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimStores"
+                    }
+                  },
+                  "Property": "ContinentName"
+                }
+              },
+              "queryRef": "DimStores.ContinentName",
+              "nativeQueryRef": "ContinentName1"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas DAX"
+                    }
+                  },
+                  "Property": "Cantidad de Regiones"
+                }
+              },
+              "queryRef": "Medidas DAX.Cantidad de Regiones",
+              "nativeQueryRef": "Cantidad de Regiones"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas DAX"
+                    }
+                  },
+                  "Property": "Cantidad de Regiones en Blanco"
+                }
+              },
+              "queryRef": "Medidas DAX.Cantidad de Regiones en Blanco",
+              "nativeQueryRef": "Cantidad de Regiones en Blanco"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas DAX"
+                    }
+                  },
+                  "Property": "Cantidad Regiones Distintas"
+                }
+              },
+              "queryRef": "Medidas DAX.Cantidad Regiones Distintas",
+              "nativeQueryRef": "Cantidad Regiones Distintas"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

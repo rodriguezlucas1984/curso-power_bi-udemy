@@ -1,0 +1,85 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "f705dd88334abe00393a",
+  "displayName": "Comparativa Segmentadas",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "objects": {
+    "outspacePane": [
+      {
+        "properties": {
+          "width": {
+            "expr": {
+              "Literal": {
+                "Value": "186L"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "04e4a714c806b3104d07",
+      "target": "87ac0520110e98807211",
+      "type": "DataFilter"
+    },
+    {
+      "source": "04e4a714c806b3104d07",
+      "target": "2bbe6cb628e9004e6087",
+      "type": "DataFilter"
+    },
+    {
+      "source": "3f674ab59d21b821c90c",
+      "target": "7a5807e048ec10512dec",
+      "type": "DataFilter"
+    },
+    {
+      "source": "3f674ab59d21b821c90c",
+      "target": "87ac0520110e98807211",
+      "type": "DataFilter"
+    },
+    {
+      "source": "3f674ab59d21b821c90c",
+      "target": "04e4a714c806b3104d07",
+      "type": "DataFilter"
+    },
+    {
+      "source": "2bbe6cb628e9004e6087",
+      "target": "87ac0520110e98807211",
+      "type": "NoFilter"
+    },
+    {
+      "source": "2bbe6cb628e9004e6087",
+      "target": "04e4a714c806b3104d07",
+      "type": "DataFilter"
+    },
+    {
+      "source": "2bbe6cb628e9004e6087",
+      "target": "3f674ab59d21b821c90c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "04e4a714c806b3104d07",
+      "target": "3f674ab59d21b821c90c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "87ac0520110e98807211",
+      "target": "d94a71ace28e8c2add6a",
+      "type": "DataFilter"
+    },
+    {
+      "source": "87ac0520110e98807211",
+      "target": "7549f63e280996526366",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d94a71ace28e8c2add6a",
+      "target": "87ac0520110e98807211",
+      "type": "DataFilter"
+    }
+  ]
+}

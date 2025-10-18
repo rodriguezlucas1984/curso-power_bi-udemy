@@ -1,0 +1,30 @@
+relationship 596a6a13-a191-4381-8aca-584862ee6a97
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimPromotion.StartDate
+	toColumn: JerarquiaFecha_2.Date
+
+relationship fa16a536-7466-4b9b-b7ad-a3c347afa6e9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimPromotion.EndDate
+	toColumn: JerarquiaFecha_3.Date
+
+relationship bc0b8fef-cdcc-252d-1e0f-14763f9563d1
+	fromColumn: FactSales.DateKey
+	toColumn: DimCalendar.DateKey
+
+relationship d41fdbc9-804f-a8aa-e495-94bc9314c4b6
+	fromColumn: FactSales.channelKey
+	toColumn: DimChannel.ChannelKey
+
+relationship 521d72b4-3d29-1697-e3e3-f8543ee6ecba
+	fromColumn: FactSales.ProductKey
+	toColumn: DimProduct.ProductKey
+
+relationship a2819bb8-8011-3ba6-8198-1879066dfb65
+	fromColumn: FactSales.StoreKey
+	toColumn: DimStores.StoreKey
+
+relationship af7b3e00-6c48-da6b-f57f-b4918ff40c89
+	fromColumn: FactSales.PromotionKey
+	toColumn: DimPromotion.PromotionKey
+

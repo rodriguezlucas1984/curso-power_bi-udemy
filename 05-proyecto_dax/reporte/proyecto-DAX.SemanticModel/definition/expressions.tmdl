@@ -1,0 +1,57 @@
+expression DimGeography =
+		let
+		    Origen = Folder.Files(#"Directorio datos"),
+		    #"_DimGeography xlsx" = Origen{[#"Folder Path"=#"Directorio datos",Name="DimGeography.xlsx"]}[Content],
+		    #"Libro de Excel importado" = Excel.Workbook(#"_DimGeography xlsx"),
+		    DimGeography_Sheet = #"Libro de Excel importado"{[Item="DimGeography",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(DimGeography_Sheet, [PromoteAllScalars=true]),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"GeographyKey", Int64.Type}, {"ContinentName", type text}, {"RegionCountryName", type text}})
+		in
+		    #"Tipo cambiado"
+	lineageTag: 965363a6-0191-49de-8d18-6be0972dc4b3
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression DimProductCategory =
+		let
+		    Origen = Folder.Files(#"Directorio datos"),
+		    #"_DimProductCategory xlsx" = Origen{[#"Folder Path"=#"Directorio datos",Name="DimProductCategory.xlsx"]}[Content],
+		    #"Libro de Excel importado" = Excel.Workbook(#"_DimProductCategory xlsx"),
+		    DimProductCategory_Sheet = #"Libro de Excel importado"{[Item="DimProductCategory",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(DimProductCategory_Sheet, [PromoteAllScalars=true]),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"ProductCategoryKey", Int64.Type}, {"ProductCategory", type text}})
+		in
+		    #"Tipo cambiado"
+	lineageTag: 430b8b1a-865f-4152-921c-4fbca608ad83
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression DimProductSubcategory =
+		let
+		    Origen = Folder.Files(#"Directorio datos"),
+		    #"_DimProductSubcategory xlsx" = Origen{[#"Folder Path"=#"Directorio datos",Name="DimProductSubcategory.xlsx"]}[Content],
+		    #"Libro de Excel importado" = Excel.Workbook(#"_DimProductSubcategory xlsx"),
+		    DimProductSubcategory_Sheet = #"Libro de Excel importado"{[Item="DimProductSubcategory",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(DimProductSubcategory_Sheet, [PromoteAllScalars=true]),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"ProductSubcategoryKey", Int64.Type}, {"ProductSubcategoryName", type text}, {"ProductCategoryKey", Int64.Type}}),
+		    #"Consultas combinadas" = Table.NestedJoin(#"Tipo cambiado", {"ProductCategoryKey"}, DimProductCategory, {"ProductCategoryKey"}, "DimProductCategory", JoinKind.LeftOuter),
+		    #"Se expandió DimProductCategory" = Table.ExpandTableColumn(#"Consultas combinadas", "DimProductCategory", {"ProductCategory"}, {"ProductCategory"})
+		in
+		    #"Se expandió DimProductCategory"
+	lineageTag: 64d7bc1e-ac29-464f-a94c-efd93fc5a95b
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression 'Directorio datos' = "##repo\05-proyecto_dax\datos\" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+	lineageTag: 2841bb53-f068-4575-a347-f3d60b8f6b83
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Text
+

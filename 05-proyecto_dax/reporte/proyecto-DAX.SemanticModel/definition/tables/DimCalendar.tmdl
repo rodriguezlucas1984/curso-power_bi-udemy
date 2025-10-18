@@ -1,0 +1,234 @@
+table DimCalendar
+	lineageTag: f7a4316f-a3e4-41a7-a937-697a3865dd7f
+	dataCategory: Time
+
+	column DateKey
+		dataType: dateTime
+		isKey
+		formatString: Short Date
+		lineageTag: 7bad430f-bf30-4e14-918c-13af037f01d0
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CalendarYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f7c7a2b-9d40-48b1-93d0-3d976ba215d5
+		summarizeBy: sum
+		sourceColumn: CalendarYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CalendarHalfYearLabel
+		dataType: string
+		lineageTag: dc812f99-6077-43e1-bfd6-54a991ac8392
+		summarizeBy: none
+		sourceColumn: CalendarHalfYearLabel
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CalendarQuarterLabel
+		dataType: string
+		lineageTag: e3a4af4c-e5fc-46c6-94d7-6e00dbcb90ec
+		summarizeBy: none
+		sourceColumn: CalendarQuarterLabel
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CalendarMonth
+		dataType: int64
+		formatString: 0
+		lineageTag: b40a803d-32fe-4d6b-942b-8922e72d53d1
+		summarizeBy: sum
+		sourceColumn: CalendarMonth
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CalendarMonthLabel
+		dataType: string
+		lineageTag: bfd0c9ed-a8ce-4d3c-b69b-cbab482e1e41
+		summarizeBy: none
+		sourceColumn: CalendarMonthLabel
+		sortByColumn: Mes
+
+		changedProperty = SortByColumn
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CalendarWeekLabel
+		dataType: string
+		lineageTag: c16ea6df-f8a1-4a0b-af23-135196ef56b4
+		summarizeBy: none
+		sourceColumn: CalendarWeekLabel
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CalendarDayOfWeekLabel
+		dataType: string
+		lineageTag: a0f0ea97-9154-4e57-9359-0faac23e0033
+		summarizeBy: none
+		sourceColumn: CalendarDayOfWeekLabel
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsWorkDay
+		dataType: string
+		lineageTag: 220cd4f4-0c72-48f3-949a-5d31a55eeaa3
+		summarizeBy: none
+		sourceColumn: IsWorkDay
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Año = YEAR(DimCalendar[DateKey])
+		formatString: 0
+		lineageTag: 6594024b-f0a2-49f8-ade1-db08a4262a47
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre = QUARTER(DimCalendar[DateKey])
+		formatString: 0
+		lineageTag: 73dc3808-15c8-4c02-8385-d8926a512cde
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes = MONTH(DimCalendar[DateKey])
+		formatString: 0
+		lineageTag: 2b381ec2-0542-4009-bbb6-383e2bdaf760
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Día = DAY(DimCalendar[DateKey])
+		formatString: 0
+		lineageTag: 021e02b0-7710-4ee5-bfff-15e22ebf22f6
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SemanaAño = WEEKNUM(DimCalendar[DateKey])
+		formatString: 0
+		lineageTag: 939ef8ce-2304-4824-92a6-82d47c00d3f6
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DíaSemana = WEEKDAY(DimCalendar[DateKey],2)
+		formatString: 0
+		lineageTag: 3d4d3af0-0306-49e0-b9bf-219db9b6f70f
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FinSemana = ```
+			IF( DimCalendar[DíaSemana]>=6, "Fin Semena", "Día Laboral") 
+			```
+		lineageTag: e0fb96b0-d050-40ff-b71e-ecf318e7f6ed
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes Corto' = ```
+			
+			 LEFT(DimCalendar[CalendarMonthLabel],3)
+			```
+		lineageTag: 0cf959d4-1b30-4fcd-82c8-a7530d395e8b
+		summarizeBy: none
+		sortByColumn: Mes
+
+		changedProperty = SortByColumn
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nombre Mes' =
+			
+			FORMAT(DimCalendar[DateKey],"MMMM")
+		lineageTag: 918c8a8d-1bc1-46d7-b87b-c37890bbb57a
+		summarizeBy: none
+		sortByColumn: Mes
+
+		changedProperty = SortByColumn
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nombre Día' =
+			
+			FORMAT(DimCalendar[DateKey],"DDDD")
+		lineageTag: 41f613b4-abbc-4b62-addd-bd30bf60ba9d
+		summarizeBy: none
+		sortByColumn: DíaSemana
+
+		changedProperty = SortByColumn
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Formato =
+			
+			LOWER(DimCalendar[FinSemana])
+		lineageTag: 1cf02507-b764-4809-a40d-ff918a3f09a4
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCalendar = m
+		mode: import
+		source =
+				let
+				    Origen = Folder.Files(#"Directorio datos"),
+				    #"_DimCalendar xlsx" = Origen{[#"Folder Path"=#"Directorio datos",Name="DimCalendar.xlsx"]}[Content],
+				    #"Libro de Excel importado" = Excel.Workbook(#"_DimCalendar xlsx"),
+				    DimCalendar_Sheet = #"Libro de Excel importado"{[Item="DimCalendar",Kind="Sheet"]}[Data],
+				    #"Encabezados promovidos" = Table.PromoteHeaders(DimCalendar_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"DateKey", type date}, {"CalendarYear", Int64.Type}, {"CalendarHalfYearLabel", type text}, {"CalendarQuarterLabel", type text}, {"CalendarMonth", Int64.Type}, {"CalendarMonthLabel", type text}, {"CalendarWeekLabel", type text}, {"CalendarDayOfWeekLabel", type text}, {"IsWorkDay", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

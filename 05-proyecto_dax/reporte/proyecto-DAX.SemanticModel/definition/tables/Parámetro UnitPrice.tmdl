@@ -1,0 +1,27 @@
+table 'Parámetro UnitPrice'
+	lineageTag: 5009348f-6012-43f5-b056-3e7280e74905
+
+	measure 'Valor de Parámetro UnitPrice' = SELECTEDVALUE('Parámetro UnitPrice'[Parámetro UnitPrice],0)
+		lineageTag: 870dec20-0d81-40ff-a514-70816fed4bde
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Parámetro UnitPrice'
+		formatString: 0\ %;-0\ %;0\ %
+		lineageTag: 3e4f92b7-4817-4ad8-ad30-7da2e3da5c4d
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition 'Parámetro UnitPrice' = calculated
+		mode: import
+		source = GENERATESERIES(-0.5, 0.5, 0.01)
+
+	annotation PBI_Id = 9b3a9c85f52d4730a61b4f2dc209c337
+
